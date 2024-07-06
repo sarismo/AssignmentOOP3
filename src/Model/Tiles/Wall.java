@@ -1,0 +1,22 @@
+package Model.Tiles;
+
+import Model.Tiles.Units.Units;
+import Model.Utils.Generators.Generator;
+import Model.Utils.Position;
+
+public class Wall extends  Tile{
+    public static final char WALL_TILE = '#';
+    public Wall(){
+        super(WALL_TILE);
+    }
+
+    @Override
+    public void intialiize(Position position1, Generator generator) {
+        // TODO : Implement this ;
+    }
+
+    @Override
+    public void accept(Units unit) {
+        unit.visit(this);
+    }
+}
