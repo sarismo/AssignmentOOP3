@@ -1,4 +1,4 @@
-package Model.Utils.Generators;
+package Utils.Generators;
 
 import java.util.Random;
 

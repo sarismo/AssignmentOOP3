@@ -1,4 +1,4 @@
-package Model.Utils;
+package Utils;
 
 public class Health {
     protected int Health_pool;
