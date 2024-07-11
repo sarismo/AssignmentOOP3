@@ -69,5 +69,6 @@ public class Player extends Units {
     @Override
     public void Death() {
         // TODO : implement this
+        // this.deathCallback.run
     }
 }

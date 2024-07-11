@@ -1,4 +1,4 @@
-package Model.Utils;
+package Utils;
 
 public class Position implements Comparable<Position> {
 

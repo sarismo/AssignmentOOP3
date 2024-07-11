@@ -1,12 +1,12 @@
 package Model.Tiles;
 
 import Model.Tiles.Units.Units;
-import Model.Utils.Generators.Generator;
-import Model.Utils.Position;
+import Utils.Generators.Generator;
+import Utils.Position;
 
 public class Empty extends Tile{
     public  static final char EMPTY_TILE = '.';
-    public Empty(char tile) {
+    public Empty() {
         super(EMPTY_TILE);
     }
 

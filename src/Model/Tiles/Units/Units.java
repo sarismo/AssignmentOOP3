@@ -3,9 +3,11 @@ import Model.Tiles.Empty;
 import  Model.Tiles.Tile;
 import Model.Tiles.Units.Enemies.Enemy;
 import Model.Tiles.Units.Players.Player;
-import Model.Utils.Generators.Generator;
-import Model.Utils.Health;
-import Model.Utils.Position;
+import Utils.Callbacks.DeathCallback;
+import Utils.Callbacks.MessageCallback;
+import Utils.Generators.Generator;
+import Utils.Health;
+import Utils.Position;
 import Model.Tiles.Wall;
 
 
@@ -16,6 +18,8 @@ public abstract class Units extends  Tile {
     protected int Attack_Points;
     protected int Defense_Points;
     protected Generator generator;
+    protected DeathCallback deathCallback;
+    protected MessageCallback messageCallback;
 
     public Units(char tile,String Name , int hitPoints ,int attack_Points, int defense_Points){
         super(tile);
@@ -27,9 +31,12 @@ public abstract class Units extends  Tile {
     }
 
 
-    public void intialiize(Position position1, Generator generator) {
+    public Units intialiize(Position position1, Generator generator, DeathCallback deathCallback, MessageCallback messageCallback) {
         super.intialiize(position1);
         this.generator = generator;
+        this.deathCallback = deathCallback;
+        this.messageCallback = messageCallback;
+        return this ;
     }
 
     public int attack(){
@@ -63,5 +70,7 @@ public abstract class Units extends  Tile {
     }
     public abstract void visit(Player p );
     public abstract void visit(Enemy e);
-    public abstract void Death();
+    public  void Death(){
+        this.deathCallback.Death();
+    }
 }

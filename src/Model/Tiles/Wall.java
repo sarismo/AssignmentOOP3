@@ -1,8 +1,8 @@
 package Model.Tiles;
 
 import Model.Tiles.Units.Units;
-import Model.Utils.Generators.Generator;
-import Model.Utils.Position;
+import Utils.Generators.Generator;
+import Utils.Position;
 
 public class Wall extends  Tile{
     public static final char WALL_TILE = '#';
