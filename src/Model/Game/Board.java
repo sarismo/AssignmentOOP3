@@ -1,5 +1,6 @@
 package Model.Game;
 
+import Model.Tiles.Empty;
 import Model.Tiles.Tile;
 import Model.Tiles.Units.Enemies.Enemy;
 import Model.Tiles.Units.Players.Player;
@@ -23,6 +24,23 @@ public class Board {
         for (Tile t : tiles) {
             board.put(t.getPostion(), t);
         }
+    }
+    public Tile check(Position p) {
+        Tile[] tiles = board.values().toArray(new Tile[0]);
+        for(Tile t : tiles){
+            if (t.getPostion().compareTo(p) == 0){
+                return t;
+            }
+        }
+        throw new RuntimeException("No such tile in this board");
+    }
+
+    public void removeEnemy(Enemy e) {
+        Position p = e.getPostion();
+
+        board.remove(p,e);
+
+       board.put(p,new Empty());
     }
 
     @Override

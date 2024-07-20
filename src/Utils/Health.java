@@ -24,7 +24,7 @@ public class Health {
         Health_pool += healthGain ;
     }
 
-    public void heal(int healthGain) {
+    public void heal() {
         this.Health_amount = Health_pool ;
     }
 }

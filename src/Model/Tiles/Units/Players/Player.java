@@ -3,7 +3,7 @@ package Model.Tiles.Units.Players;
 import Model.Tiles.Units.Units;
 import Model.Tiles.Units.Enemies.Enemy ;
 
-public class Player extends Units {
+public abstract class Player extends Units {
     public static  final char PLAYER_TILE = '@';
     protected static final int LEVEL_REQUIREMENT = 50 ;
     protected static final int HEALTH_GAIN = 10 ;
@@ -36,7 +36,7 @@ public class Player extends Units {
         int attackGain = attackGain();
         int defenseGain = defenseGain();
         health.IncreaseMax(healthGain);
-        health.heal(healthGain);
+        health.heal();
         this.Attack_Points += attackGain;
         this.Defense_Points += defenseGain;
     }

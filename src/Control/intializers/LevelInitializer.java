@@ -26,16 +26,16 @@ public class LevelInitializer {
             for(char c : line.toCharArray()){
                 switch (c){
                     case '.' :
-                        // create empty tile
+                        // create empty tile // TODO
                         break;
                     case '#':
-                        // create wall tile
+                        // create wall tile // TODO
                         break;
                     case  '@':
-                        //create player tile
+                        //create player tile // TODO
                         break;
                     default:
-                        // create enemy tile
+                        // create enemy tile // TODO
                         break;
                 }
 

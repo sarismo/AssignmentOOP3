@@ -30,6 +30,8 @@ public abstract class Tile {
         this.position = temp ;
     }
 
+    public abstract void intialiize(Position position1, Generator generator);
+
     public abstract void accept(Units unit) ;
 
     public Position getPostion() {
@@ -37,4 +39,7 @@ public abstract class Tile {
     }
 
 
+    public char getTile() {
+        return tile ;
+    }
 }
