@@ -3,6 +3,7 @@ package Model.Tiles.Units.Players;
 import Model.Tiles.Units.Units;
 import Model.Tiles.Units.Enemies.Enemy ;
 import Utils.Callbacks.MessageCallback;
+import Utils.Position;
 import view.CLI;
 
 import java.util.List;
@@ -88,4 +89,8 @@ public abstract class Player extends Units {
         CallBack.send("Player has Died , you have Lost !!!");
     }
     public abstract void CastAbility(List<Enemy> enemies);
+
+    public Position getPosition() {
+        return this.position;
+    }
 }
