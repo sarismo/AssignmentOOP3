@@ -2,6 +2,10 @@ package Model.Tiles.Units.Players;
 
 import Model.Tiles.Units.Units;
 import Model.Tiles.Units.Enemies.Enemy ;
+import Utils.Callbacks.MessageCallback;
+import view.CLI;
+
+import java.util.List;
 
 public abstract class Player extends Units {
     public static  final char PLAYER_TILE = '@';
@@ -10,7 +14,8 @@ public abstract class Player extends Units {
     protected static final int ATTACK_GAIN = 4 ;
     protected static final int DEFENSE_GAIN = 1 ;
 
-
+    protected MessageCallback CallBack;
+    private CLI view ;
     protected int level ;
     protected int experience;
 
@@ -65,10 +70,22 @@ public abstract class Player extends Units {
             e.Death();
         }
     }
+    protected void AttackAbilityDamage(Enemy e, int abilityDamage) {
+        int damageDone = Math.max(abilityDamage - e.defend(), 0);
+        e.getHealth().takeDamage(damageDone);
+        CallBack.send(String.format("%s hit %s for %d Ability damage Done On Enemy ", getName(), e.getName(), damageDone));
+        if (!e.alive())
+            kill(e);
+    }
+
+    @Override
+    public String describe() {
+        return super.describe() + "\t\tLevel: " + this.level  + "\t\tExp: " + this.experience ;
+    }
 
     @Override
     public void Death() {
-        // TODO : implement this
-        // this.deathCallback.run
+        CallBack.send("Player has Died , you have Lost !!!");
     }
+    public abstract void CastAbility(List<Enemy> enemies);
 }

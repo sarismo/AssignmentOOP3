@@ -54,7 +54,7 @@ public abstract class Units extends  Tile {
     int damage_taken = attack - defense;
     enemy.health.takeDamage(damage_taken);
 //    if(!alive()) {
-//        // TODO : Implement this
+//         TODO : Implement this
 //        return ;
 //    }
     }
@@ -67,6 +67,28 @@ public abstract class Units extends  Tile {
     }
     public void visit(Wall  w) {
         // DO nothing
+    }
+    public String getName(){
+        return Name;
+    }
+
+    public Health getHealth(){
+        return health;
+    }
+    protected int getHealthPool(){
+        return health.Health_pool;
+    }
+    protected int getHealthAmount(){
+        return health.getHealthAmount();
+    }
+    protected int getAttack(){
+        return Attack_Points;
+    }
+    protected int getDefense(){
+        return Defense_Points;
+    }
+    public String describe() {
+        return "\t\tName: "+ getName() + "\t\tHealth: " + getHealthAmount() + "\t\tAttack: " + getAttack() + "\t\tDefense: " + getDefense();
     }
     public abstract void visit(Player p );
     public abstract void visit(Enemy e);

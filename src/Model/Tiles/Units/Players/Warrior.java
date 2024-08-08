@@ -1,5 +1,10 @@
 package Model.Tiles.Units.Players;
 
+import Model.Tiles.Units.Enemies.Enemy;
+import Utils.Generators.Generator;
+import Utils.Position;
+
+import java.util.List;
 import java.util.Random;
 
 public class Warrior extends Player {
@@ -25,6 +30,12 @@ public class Warrior extends Player {
         Attack_Points += warriorAttackGained;
         Defense_Points += warriorDefenseGained;
     }
+
+    @Override
+    public void CastAbility(List<Enemy> enemies) {
+
+    }
+
     private int WarriorGainHealth()
     {
         return 5 * level;
@@ -36,4 +47,14 @@ public class Warrior extends Player {
     }
 
     private int WarriorGainDefense() { return level; }
+
+    @Override
+    public void intialiize(Position position1, Generator generator) {
+
+    }
+
+    @Override
+    public String describe() {
+        return super.describe() + "\t\tAbilityCoolDown : " + this.AbilityCooldown;
+    }
 }

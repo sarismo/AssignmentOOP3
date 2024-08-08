@@ -1,5 +1,11 @@
 package Model.Tiles.Units.Players;
 
+import Model.Tiles.Units.Enemies.Enemy;
+import Utils.Generators.Generator;
+import Utils.Position;
+
+import java.util.List;
+
 public class Rogue extends Player {
     int Cost;
     int Current_Energy;
@@ -19,9 +25,25 @@ public class Rogue extends Player {
 
     }
 
+    @Override
+    public void CastAbility(List<Enemy> enemies) {
+
+    }
+
+
+
     private int RogueGainAttack()
     {
         return 3 * level;
     }
 
+    @Override
+    public void intialiize(Position position1, Generator generator) {
+
+    }
+
+    @Override
+    public String describe() {
+        return super.describe() + "\t\tCurrentEnergy: "+ this.Current_Energy;
+    }
 }

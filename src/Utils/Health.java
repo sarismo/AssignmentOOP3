@@ -1,7 +1,7 @@
 package Utils;
 
 public class Health {
-    protected int Health_pool;
+    public int Health_pool;
     protected int Health_amount;
 
     public Health(int capacity){

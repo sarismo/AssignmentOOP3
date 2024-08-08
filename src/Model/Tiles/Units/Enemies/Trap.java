@@ -1,5 +1,8 @@
 package Model.Tiles.Units.Enemies;
 
+import Utils.Generators.Generator;
+import Utils.Position;
+
 public class Trap extends Enemy{
     public int VisibilityTime;
     public int InvisibilityTime;
@@ -12,5 +15,15 @@ public class Trap extends Enemy{
         InvisibilityTime = invisibilityTime;
         TicksCount = 0;
         Visible = true;
+    }
+
+    @Override
+    public void intialiize(Position position1, Generator generator) {
+
+    }
+
+    @Override
+    public String describe() {
+        return super.describe() + "\t\tVisibilityTime: " + this.VisibilityTime + "\t\tInvisiblityTime: " + this.InvisibilityTime + "\t\tTickCounts : " + this.TicksCount;
     }
 }

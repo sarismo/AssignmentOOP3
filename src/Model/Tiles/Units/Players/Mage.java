@@ -1,5 +1,10 @@
 package Model.Tiles.Units.Players;
 
+import Model.Tiles.Units.Enemies.Enemy;
+import Utils.Generators.Generator;
+import Utils.Position;
+
+import java.util.List;
 import java.util.Random;
 
 public class Mage extends Player {
@@ -31,6 +36,11 @@ public class Mage extends Player {
         messageCallback.send(String.format("+%d Maximum mana, +%d Spell Power", Mana_Pool, Spell_Power));
     }
 
+    @Override
+    public void CastAbility(List<Enemy> enemies) {
+
+    }
+
     private int MageGainManaPool()
     {
         return 25 * level;
@@ -41,5 +51,14 @@ public class Mage extends Player {
         return 10 * level;
     }
 
+    @Override
+    public void intialiize(Position position1, Generator generator) {
+
+    }
+
+    @Override
+    public String describe() {
+        return super.describe() + "\t\tMana_Pool: " + this.Mana_Pool;
+    }
 }
 
