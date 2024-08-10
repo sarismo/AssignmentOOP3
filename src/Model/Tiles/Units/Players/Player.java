@@ -1,8 +1,10 @@
 package Model.Tiles.Units.Players;
 
+import Model.Tiles.Tile;
 import Model.Tiles.Units.Units;
 import Model.Tiles.Units.Enemies.Enemy ;
 import Utils.Callbacks.MessageCallback;
+import Utils.Generators.Generator;
 import Utils.Position;
 import view.CLI;
 
@@ -58,6 +60,7 @@ public abstract class Player extends Units {
     protected int defenseGain(){
         return DEFENSE_GAIN * level;
     }
+    @Override
     public void accept(Units unit) {
         unit.visit(this);
     }
@@ -86,6 +89,14 @@ public abstract class Player extends Units {
 
     @Override
     public void Death() {
+        Tile tile = new Tile('X') {
+            @Override
+            public void accept(Units unit) {
+
+            }
+        };
+
+        this.swapPosition(tile);
         CallBack.send("Player has Died , you have Lost !!!");
     }
     public abstract void CastAbility(List<Enemy> enemies);

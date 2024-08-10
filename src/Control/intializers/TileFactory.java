@@ -58,7 +58,7 @@ public class TileFactory {
     }
 
 
-    public Player producePlayer(int PlayerID) {
+    public Player producePlayer(int PlayerID,DeathCallback deathCallback,MessageCallback messageCallback,Generator generator) {
         Supplier<Player> supp = playerTypes.get(PlayerID-1);
         this.p = supp.get();
         return this.p;
@@ -69,16 +69,17 @@ public class TileFactory {
 
     public Enemy produceEnemy(char tile, Position p , DeathCallback c , Generator g , MessageCallback m){
         Enemy enemy = enemyTypes.get(tile).get();
-        enemy.intialiize(p,g,c,m);
+        enemy.initialize(p,g,c,m);
         return enemy;
 
     }
 
+
     public Tile produceEmpty(Position p){
-        return new Empty().intialiize(p);
+        return new Empty().initialize(p);
     }
     public Tile produceWall(Position p ){
-        return new Wall().intialiize(p);
+        return new Wall().initialize(p);
     }
 
 

@@ -1,11 +1,11 @@
 package Model.Tiles.Units.Players;
 
 import Model.Tiles.Units.Enemies.Enemy;
-import Utils.Generators.Generator;
-import Utils.Position;
+import Utils.Generators.RandomGenerator;
 
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class Mage extends Player {
 
@@ -16,6 +16,8 @@ public class Mage extends Player {
     protected int Hits_Count;
     protected int Ability_Range;
     private Random randomEnemy;
+
+    private final static int RANGE_LIMIT = 3;
 
     public Mage (String name, int healthCapacity, int attack, int defense, int manaPool, int manaCost, int spellPower, int hitsCount, int abilityRange) {
         super(name, healthCapacity, attack, defense);
@@ -36,9 +38,9 @@ public class Mage extends Player {
         messageCallback.send(String.format("+%d Maximum mana, +%d Spell Power", Mana_Pool, Spell_Power));
     }
 
-    @Override
-    public void CastAbility(List<Enemy> enemies) {
 
+    public void onGameTick() {
+        Current_Mana = Math.min(Mana_Pool, Current_Mana + level);
     }
 
     private int MageGainManaPool()
@@ -51,14 +53,34 @@ public class Mage extends Player {
         return 10 * level;
     }
 
-    @Override
-    public void intialiize(Position position1, Generator generator) {
 
-    }
 
     @Override
     public String describe() {
         return super.describe() + "\t\tMana_Pool: " + this.Mana_Pool;
+    }
+
+    @Override
+    public void CastAbility(List<Enemy> enemies) {
+        if (Current_Mana >= Mana_Cost) {
+            Current_Mana -= Mana_Cost;
+            int hits = 0;
+            RandomGenerator randomGenerator = new RandomGenerator();
+            while (hits < Hits_Count) {
+                List<Enemy> possibleEnemies = enemies.stream()
+                        .filter(e -> e.alive() && this.position.Range(e.getPosition()) < RANGE_LIMIT)
+                        .collect(Collectors.toList());
+
+                if (possibleEnemies.isEmpty()) {
+                    break;
+                }
+                int randomIndex = randomGenerator.generate(possibleEnemies.size());
+                Enemy enemyToHit = possibleEnemies.get(randomIndex);
+                AttackAbilityDamage(enemyToHit, Spell_Power);
+                hits++;
+            }
+        }
+
     }
 }
 

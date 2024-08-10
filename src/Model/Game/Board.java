@@ -4,6 +4,7 @@ import Model.Tiles.Empty;
 import Model.Tiles.Tile;
 import Model.Tiles.Units.Enemies.Enemy;
 import Model.Tiles.Units.Players.Player;
+import Model.Tiles.Units.Units;
 import Utils.Position;
 
 import java.util.List;
@@ -22,13 +23,13 @@ public class Board {
         this.width = width;
         this.board = new TreeMap<>();
         for (Tile t : tiles) {
-            board.put(t.getPostion(), t);
+            board.put(t.getPosition(), t);
         }
     }
     public Tile check(Position p) {
         Tile[] tiles = board.values().toArray(new Tile[0]);
         for(Tile t : tiles){
-            if (t.getPostion().compareTo(p) == 0){
+            if (t.getPosition().compareTo(p) == 0){
                 return t;
             }
         }
@@ -36,7 +37,7 @@ public class Board {
     }
 
     public void removeEnemy(Enemy e) {
-        Position p = e.getPostion();
+        Position p = e.getPosition();
 
         board.remove(p,e);
 
@@ -54,6 +55,13 @@ public class Board {
         }
         return  sb.toString();
 
+    }
+
+    public int getLength() {
+      return  board.size();
+    }
+    public void SetPosition(Position p,Tile tile){
+        board.put(p,tile);
     }
 }
 

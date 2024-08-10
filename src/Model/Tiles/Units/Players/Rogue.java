@@ -25,11 +25,21 @@ public class Rogue extends Player {
 
     }
 
+
     @Override
     public void CastAbility(List<Enemy> enemies) {
-
+        if (Current_Energy >= Cost) {
+            Current_Energy -= Cost;
+            for (Enemy enemy : enemies) {
+                if (this.position.Range(enemy.getPosition()) < 2) {
+                    AttackAbilityDamage(enemy, this.Attack_Points);
+                }
+            }
+        }
     }
-
+    public void OnGameTick(){
+        Current_Energy = Math.min(Current_Energy + 10, 100);
+    }
 
 
     private int RogueGainAttack()
@@ -37,10 +47,6 @@ public class Rogue extends Player {
         return 3 * level;
     }
 
-    @Override
-    public void intialiize(Position position1, Generator generator) {
-
-    }
 
     @Override
     public String describe() {
