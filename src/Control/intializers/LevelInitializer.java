@@ -20,18 +20,19 @@ import java.util.List;
 public class LevelInitializer {
     protected int playerID;
     protected Board board;
-    protected TileFactory tileFactory= new TileFactory();
+    protected TileFactory tileFactory;
 
     protected DeathCallback d;
     protected MessageCallback m;
     protected Generator g;
 
 
-    public  LevelInitializer(int playerID,Board board){
+    public  LevelInitializer(MessageCallback m){
         this.playerID = playerID;
-        this.board = board;
+        this.m = m;
+        this.tileFactory = new TileFactory(m);
     }
-    public void initLevel(String levelPath){
+    public Board initLevel(String levelPath){
         List<String> lines;
         try{
             lines = Files.readAllLines(Paths.get(levelPath));
@@ -70,7 +71,11 @@ public class LevelInitializer {
 
             }
         }
+        return board;
     }
- 
 
+
+    public boolean levelExists(String levelFilePath) {
+
+    }
 }

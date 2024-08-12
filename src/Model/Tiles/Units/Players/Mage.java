@@ -1,5 +1,6 @@
 package Model.Tiles.Units.Players;
 
+import Model.Tiles.Tile;
 import Model.Tiles.Units.Enemies.Enemy;
 import Utils.Generators.RandomGenerator;
 
@@ -39,9 +40,6 @@ public class Mage extends Player {
     }
 
 
-    public void onGameTick() {
-        Current_Mana = Math.min(Mana_Pool, Current_Mana + level);
-    }
 
     private int MageGainManaPool()
     {
@@ -82,5 +80,12 @@ public class Mage extends Player {
         }
 
     }
+
+    @Override
+    public void onGameTick(Tile t) {
+        this.Interact(t);
+        Current_Mana = Math.min(Mana_Pool, Current_Mana + level);
+    }
+
 }
 

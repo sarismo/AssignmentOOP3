@@ -82,6 +82,7 @@ public abstract class Player extends Units {
             kill(e);
     }
 
+
     @Override
     public String describe() {
         return super.describe() + "\t\tLevel: " + this.level  + "\t\tExp: " + this.experience ;
@@ -104,4 +105,5 @@ public abstract class Player extends Units {
     public Position getPosition() {
         return this.position;
     }
+  public  abstract void onGameTick(Tile t);
 }

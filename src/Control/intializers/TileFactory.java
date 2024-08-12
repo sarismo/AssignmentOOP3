@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
 
 public class TileFactory {
     private Player p;
+    public MessageCallback msg;
     private static final List<Supplier<Player>> playerTypes = Arrays.asList(   () -> new Warrior("Jon Snow", 300, 30, 4, 3),
             () -> new Warrior("The Hound", 400, 20, 6, 5),
             () -> new Mage("Melisandre", 100, 5, 1, 300, 30, 15, 5, 6),
@@ -54,7 +55,8 @@ public class TileFactory {
 
         return enemies.stream().collect(Collectors.toMap(s -> s.get().getTile(), Function.identity()));
     }
-    public TileFactory() {
+    public TileFactory(MessageCallback msg) {
+        this.msg = msg;
     }
 
 
@@ -83,4 +85,34 @@ public class TileFactory {
     }
 
 
+    public void printThePlayers() {
+    List<Player>p = listPlayers();
+        for (int i = 0; i < p.size(); i++) {
+            msg.send((i) + "->" + listPlayers().get(i).describe());
+        }
+
+    }
+    public List<Player> listPlayers() {
+        return playerTypes.stream().map(Supplier::get).collect(Collectors.toList());
+    }
+    public Player getPlayer(int index) {
+        selected = this.playersList.get(index-1).get();
+        return selected;
+    }
+
+    public Enemy getEnemy(char c) {
+        return this.enemyTypes.get(c).get();
+    }
+
+    public Tile getTile(char c, int x, int y) {
+        if (c == '#')
+            return new Wall();
+        if (c == '.')
+            return new Empty();
+
+        Enemy e = getEnemy(c);
+        e.initialize(new Position(x, y));
+
+        return e;
+    }
 }

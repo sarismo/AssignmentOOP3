@@ -1,5 +1,6 @@
 package Model.Tiles.Units.Players;
 
+import Model.Tiles.Tile;
 import Model.Tiles.Units.Enemies.Enemy;
 import Utils.Generators.Generator;
 import Utils.Position;
@@ -32,6 +33,8 @@ public class Warrior extends Player {
         Defense_Points += warriorDefenseGained;
     }
 
+
+
     @Override
     public void CastAbility(List<Enemy> enemies) {
         if (RemainingCooldown <= 0) {
@@ -53,7 +56,9 @@ public class Warrior extends Player {
             messageCallback.send("The player can't use his special ability yet ,"+ "wait" +RemainingCooldown +"Seconds till he cools down" );
         }
     }
-    public void onGameTick(){
+    @Override
+    public void onGameTick(Tile t){
+        this.Interact(t);
         if (RemainingCooldown > 0)
             RemainingCooldown--;
         else

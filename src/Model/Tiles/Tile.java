@@ -44,4 +44,8 @@ public abstract class Tile {
     public char getTile() {
         return tile ;
     }
+
+    public char getTileCharacter() {
+        return tile;
+    }
 }

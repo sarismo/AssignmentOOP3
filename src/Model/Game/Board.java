@@ -63,5 +63,15 @@ public class Board {
     public void SetPosition(Position p,Tile tile){
         board.put(p,tile);
     }
+
+    public Tile getTileInPosition(Position newPosition) {
+        return board.get(newPosition);
+    }
+
+    public Tile[] getTiles() {
+        Tile[] tiles = board.values().toArray(new Tile[0]);
+        return tiles;
+    }
 }
+
 

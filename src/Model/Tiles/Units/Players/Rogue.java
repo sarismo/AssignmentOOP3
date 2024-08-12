@@ -1,8 +1,7 @@
 package Model.Tiles.Units.Players;
 
+import Model.Tiles.Tile;
 import Model.Tiles.Units.Enemies.Enemy;
-import Utils.Generators.Generator;
-import Utils.Position;
 
 import java.util.List;
 
@@ -26,6 +25,9 @@ public class Rogue extends Player {
     }
 
 
+
+
+
     @Override
     public void CastAbility(List<Enemy> enemies) {
         if (Current_Energy >= Cost) {
@@ -37,10 +39,12 @@ public class Rogue extends Player {
             }
         }
     }
-    public void OnGameTick(){
+
+    @Override
+    public void onGameTick(Tile t) {
+        this.Interact(t);
         Current_Energy = Math.min(Current_Energy + 10, 100);
     }
-
 
     private int RogueGainAttack()
     {
