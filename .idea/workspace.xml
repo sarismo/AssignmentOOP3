@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46cfe999-a9b5-4a7f-a1f1-c441777876bd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Model/Game/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Game/Level.java" afterDir="false" />
-    </list>
+    <list default="true" id="46cfe999-a9b5-4a7f-a1f1-c441777876bd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,5 +56,16 @@
       <updated>1720262178643</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -76,6 +76,6 @@ public class LevelInitializer {
 
 
     public boolean levelExists(String levelFilePath) {
-
+        return  true;
     }
 }
