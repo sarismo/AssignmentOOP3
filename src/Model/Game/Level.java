@@ -32,10 +32,7 @@ public class Level {
     }
 
     public void gameTick(String action) {
-        // Player takes their action (e.g., move, attack)
         Interact(player, action);
-
-        // Enemies take their turn
         for (Monster monster : monsters) {
             monster.EnemyOnGameTick(player);
         }
@@ -44,7 +41,6 @@ public class Level {
             trap.onEnemyTurn(player);
         }
 
-        // Check for game-over conditions
         if (gameOver()) {
             msg.send("Player has been defeated!");
         } else if (isOver()) {
