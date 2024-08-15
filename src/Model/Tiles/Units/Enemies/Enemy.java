@@ -2,8 +2,11 @@ package Model.Tiles.Units.Enemies;
 
 import Model.Tiles.Units.Players.Player;
 import Model.Tiles.Units.Units;
+import Utils.Position;
 
-public class Enemy extends Units {
+import javax.security.auth.callback.Callback;
+
+public abstract class Enemy extends Units {
 
     protected int experienceValue ;
 
@@ -16,7 +19,7 @@ public class Enemy extends Units {
         return experienceValue ;
     }
     public void Death(){
-        // TODO : Implement this
+        messageCallback.send("Enemy has Died");
     }
 
     @Override
@@ -32,4 +35,10 @@ public class Enemy extends Units {
             p.Death();
         }
     }
+
+    @Override
+    public String describe() {
+        return super.describe() + "\t\tEXPValue: "+ this.experienceValue;
+    }
+
 }

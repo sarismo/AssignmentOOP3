@@ -1,8 +1,8 @@
 package Utils;
 
 public class Health {
-    protected int Health_pool;
-    protected int Health_amount;
+    public int Health_pool;
+    public int Health_amount;
 
     public Health(int capacity){
         this.Health_pool = capacity;
@@ -19,12 +19,15 @@ public class Health {
     public int getHealthAmount() {
         return Health_amount ;
     }
+    public int getHealthPool(){
+        return Health_pool;
+    }
 
     public void IncreaseMax(int healthGain) {
         Health_pool += healthGain ;
     }
 
-    public void heal(int healthGain) {
+    public void heal() {
         this.Health_amount = Health_pool ;
     }
 }

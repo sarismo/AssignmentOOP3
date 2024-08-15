@@ -4,28 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46cfe999-a9b5-4a7f-a1f1-c441777876bd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Control/Program.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Game/Board.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Game/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Game/Level.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Utils/Callbacks/DeathCallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Utils/Callbacks/MessageCallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/CLI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Tiles/Empty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Tiles/Empty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Tiles/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Tiles/Units/Players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Tiles/Units/Players/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Tiles/Units/Units.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Tiles/Units/Units.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Tiles/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Tiles/Wall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Utils/Generators/FixedGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/Generators/FixedGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Utils/Generators/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/Generators/Generator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Utils/Generators/RandomGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/Generators/RandomGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Utils/Health.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/Health.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Utils/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/Position.java" afterDir="false" />
-    </list>
+    <list default="true" id="46cfe999-a9b5-4a7f-a1f1-c441777876bd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,9 +36,16 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Model.Tiles.Units.Players" />
+      <recent name="Model.Tiles.Units.Enemies" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -70,5 +56,16 @@
       <updated>1720262178643</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
