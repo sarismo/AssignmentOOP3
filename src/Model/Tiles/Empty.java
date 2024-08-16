@@ -12,7 +12,7 @@ public class Empty extends Tile{
 
     @Override
     public void intialiize(Position position1, Generator generator) {
-        // TODO : Implement this ;
+        return;
     }
 
     @Override
