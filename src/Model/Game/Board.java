@@ -1,8 +1,10 @@
 package Model.Game;
 
+import Model.Tiles.Empty;
 import Model.Tiles.Tile;
 import Model.Tiles.Units.Enemies.Enemy;
 import Model.Tiles.Units.Players.Player;
+import Model.Tiles.Units.Units;
 import Utils.Position;
 
 import java.util.List;
@@ -21,8 +23,25 @@ public class Board {
         this.width = width;
         this.board = new TreeMap<>();
         for (Tile t : tiles) {
-            board.put(t.getPostion(), t);
+            board.put(t.getPosition(), t);
         }
+    }
+    public Tile check(Position p) {
+        Tile[] tiles = board.values().toArray(new Tile[0]);
+        for(Tile t : tiles){
+            if (t.getPosition().compareTo(p) == 0){
+                return t;
+            }
+        }
+        throw new RuntimeException("No such tile in this board");
+    }
+
+    public void removeEnemy(Enemy e) {
+        Position p = e.getPosition();
+
+        board.remove(p,e);
+
+       board.put(p,new Empty());
     }
 
     @Override
@@ -37,5 +56,22 @@ public class Board {
         return  sb.toString();
 
     }
+
+    public int getLength() {
+      return  board.size();
+    }
+    public void SetPosition(Position p,Tile tile){
+        board.put(p,tile);
+    }
+
+    public Tile getTileInPosition(Position newPosition) {
+        return board.get(newPosition);
+    }
+
+    public Tile[] getTiles() {
+        Tile[] tiles = board.values().toArray(new Tile[0]);
+        return tiles;
+    }
 }
+
 
