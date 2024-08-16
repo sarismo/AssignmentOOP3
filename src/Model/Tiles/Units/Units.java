@@ -17,6 +17,7 @@ public abstract class Units extends  Tile {
     protected Health health;
     protected int Attack_Points;
     protected int Defense_Points;
+
     protected Generator generator;
     protected DeathCallback deathCallback;
     protected MessageCallback messageCallback;
@@ -31,8 +32,8 @@ public abstract class Units extends  Tile {
     }
 
 
-    public Units intialiize(Position position1, Generator generator, DeathCallback deathCallback, MessageCallback messageCallback) {
-        super.intialiize(position1);
+    public Units initialize(Position position1, Generator generator, DeathCallback deathCallback, MessageCallback messageCallback) {
+        super.initialize(position1);
         this.generator = generator;
         this.deathCallback = deathCallback;
         this.messageCallback = messageCallback;
@@ -52,11 +53,16 @@ public abstract class Units extends  Tile {
     int attack = this.attack();
     int defense = enemy.defend();
     int damage_taken = attack - defense;
-    enemy.health.takeDamage(damage_taken);
-//    if(!alive()) {
-//        // TODO : Implement this
-//        return ;
-//    }
+
+        if(attack > defense)
+        {
+            enemy.health.takeDamage(damage_taken);
+            messageCallback.send(  "enemy lost " + (attack - defense)+ "amount of health" );
+        }
+        else
+            messageCallback.send("the attack was too low to break the enemy defense");
+        if(!enemy.alive())
+            enemy.Death();
     }
     public void Interact(Tile t) {
         t.accept(this);
@@ -67,6 +73,26 @@ public abstract class Units extends  Tile {
     }
     public void visit(Wall  w) {
         // DO nothing
+    }
+    public String getName(){
+        return Name;
+    }
+
+    public Health getHealth(){
+        return health;
+    }
+
+    protected int getHealthAmount(){
+        return health.getHealthAmount();
+    }
+    protected int getAttack(){
+        return Attack_Points;
+    }
+    protected int getDefense(){
+        return Defense_Points;
+    }
+    public String describe() {
+        return "\t\tName: "+ getName() + "\t\tHealth: " + getHealthAmount() + "\t\tAttack: " + getAttack() + "\t\tDefense: " + getDefense();
     }
     public abstract void visit(Player p );
     public abstract void visit(Enemy e);

@@ -10,10 +10,6 @@ public class Wall extends  Tile{
         super(WALL_TILE);
     }
 
-    @Override
-    public void intialiize(Position position1, Generator generator) {
-        // TODO : Implement this ;
-    }
 
     @Override
     public void accept(Units unit) {
