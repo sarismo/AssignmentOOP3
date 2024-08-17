@@ -10,19 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46cfe999-a9b5-4a7f-a1f1-c441777876bd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Assignment3_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Control/intializers/LevelInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/intializers/LevelInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Control/intializers/TileFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/intializers/TileFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Game/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Game/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Game/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Game/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Tiles/Units/Players/Mage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Tiles/Units/Players/Mage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Tiles/Units/Players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Tiles/Units/Players/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Tiles/Units/Players/Rogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Tiles/Units/Players/Rogue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Tiles/Units/Players/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Tiles/Units/Players/Warrior.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +54,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Run",
+    "Application.Main.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",

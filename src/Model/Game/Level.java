@@ -31,7 +31,6 @@ public class Level {
         this.traps = new ArrayList<>();
         this.factory = new TileFactory(msg);
         this.buildLevel = new LevelInitializer(msg,pID,player);
-
     }
 
     public void gameTick(String action) {
@@ -122,7 +121,7 @@ public class Level {
     public void levelInfo()
     {
         msg.send(this.board.toString());
-        this.player.info();
+//        this.player.info();
     }
     public boolean hasLevel(String levelFilePath) {
         return buildLevel.levelExists(levelFilePath);

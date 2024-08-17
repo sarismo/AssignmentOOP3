@@ -37,7 +37,7 @@ public class Game {
 
     private void selectPlayer() {
         tileFactory.printThePlayers();
-        msg.send("Choose your player from the list (Enter a number between 1 and 7):");
+        msg.send("Choose your player from the list (Enter a number between 1 and 6):");
 
         int playerChosen = scanner.nextInt();
         while (playerChosen < 1 || playerChosen > 7) {

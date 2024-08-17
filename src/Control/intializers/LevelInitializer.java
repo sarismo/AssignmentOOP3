@@ -7,6 +7,7 @@ import Model.Tiles.Units.Players.Player;
 import Utils.Callbacks.DeathCallback;
 import Utils.Callbacks.MessageCallback;
 import Utils.Generators.Generator;
+import Utils.Generators.RandomGenerator;
 import Utils.Position;
 
 
@@ -22,9 +23,14 @@ public class LevelInitializer {
     protected Board board;
     protected TileFactory tileFactory;
 
-    protected DeathCallback d;
+    protected DeathCallback d=new DeathCallback() {
+        @Override
+        public void Death() {
+
+        }
+    };
     protected MessageCallback m;
-    protected Generator g;
+    protected Generator g=new RandomGenerator();
 
 
     public  LevelInitializer(MessageCallback m , int id, Player player){
@@ -69,6 +75,7 @@ public class LevelInitializer {
                     case  '@':
                         //create player tile // TODO
                      Tile p= tileFactory.producePlayer(playerID,d,m,g);
+                     p.initialize(position,g);
                      board.SetPosition(position,p);
                         break;
                     default:
