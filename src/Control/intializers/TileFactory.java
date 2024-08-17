@@ -96,7 +96,7 @@ public class TileFactory {
         return playerTypes.stream().map(Supplier::get).collect(Collectors.toList());
     }
     public Player getPlayer(int index) {
-        p = this.playerTypes.get(index-1).get();
+        p = playerTypes.get(index-1).get();
         return p;
     }
 

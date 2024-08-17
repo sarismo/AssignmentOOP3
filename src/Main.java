@@ -1,5 +1,8 @@
 import Model.Game.Game;
+import Utils.Callbacks.DeathCallback;
 import Utils.Callbacks.MessageCallback;
+
+import java.nio.file.Paths;
 
 public class Main {
 
@@ -10,7 +13,9 @@ public class Main {
                 System.out.println(message);
             }
         };
-        Game g = new Game(args[2],msg);
+        String levelsDirPath = Paths.get("src//levels_dir").toAbsolutePath().toString();
+
+        Game g = new Game(levelsDirPath,msg);
         g.activateGame();
 
 
