@@ -101,7 +101,7 @@ public abstract class Player extends Units {
         CallBack.send("Player has Died , you have Lost !!!");
     }
     public abstract void CastAbility(List<Enemy> enemies);
-
+    public abstract void info();
     public Position getPosition() {
         return this.position;
     }

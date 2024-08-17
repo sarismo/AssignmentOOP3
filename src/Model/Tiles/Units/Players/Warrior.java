@@ -76,7 +76,10 @@ public class Warrior extends Player {
     }
 
     private int WarriorGainDefense() { return level; }
-
+    public void info()
+    {
+        this.CallBack.send("Warrior " +this.getName() + "\n" + this.describe() + "\n");
+    }
 
     @Override
     public String describe() {
