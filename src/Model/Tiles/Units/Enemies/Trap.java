@@ -1,8 +1,7 @@
 package Model.Tiles.Units.Enemies;
 
 import Model.Tiles.Units.Players.Player;
-import Utils.Generators.Generator;
-import Utils.Position;
+import Model.Tiles.Units.Units;
 
 public class Trap extends Enemy{
     public int VisibilityTime;
@@ -22,16 +21,24 @@ public class Trap extends Enemy{
         Visible = TicksCount < VisibilityTime;
 
         // Reset ticksCount if it has reached the full cycle of visibility + invisibility
-        if (TicksCount == (VisibilityTime + InvisibilityTime)) {
+        if(TicksCount == (VisibilityTime + InvisibilityTime)) {
             TicksCount = 0;
-        } else {
-            TicksCount++;
         }
-
+        if (this.Visible) {
+            this.changeTileView(tile);
+        } else {
+            this.changeTileView('.');
+        }
+        TicksCount++;
         // Attack the player if they are within range
         if (this.getPosition().Range(player.getPosition()) < 2) {
             this.battle(player);
         }
+    }
+    @Override
+    public void Death(Units Killer){
+        Killer.addExperience(this.experienceValue);
+        messageCallback.send("Trap " + this.getName() + " died.");
     }
     @Override
     public String describe() {

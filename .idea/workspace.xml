@@ -11,11 +11,12 @@
   <component name="ChangeListManager">
     <list default="true" id="46cfe999-a9b5-4a7f-a1f1-c441777876bd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Control/intializers/LevelInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/intializers/LevelInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Control/intializers/TileFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/intializers/TileFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Game/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Game/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Game/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Game/Level.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Tiles/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Tiles/Units/Enemies/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Tiles/Units/Enemies/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Tiles/Units/Enemies/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Tiles/Units/Enemies/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Tiles/Units/Enemies/Trap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Tiles/Units/Enemies/Trap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Tiles/Units/Players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Tiles/Units/Players/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Tiles/Units/Units.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Tiles/Units/Units.java" afterDir="false" />
     </list>
@@ -131,6 +132,33 @@
           <properties class="java.nio.file.AccessDeniedException" package="java.nio.file" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Model/Tiles/Units/Enemies/Enemy.java</url>
+          <line>22</line>
+          <properties class="Model.Tiles.Units.Enemies.Enemy" method="Death">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Model/Tiles/Units/Enemies/Monster.java</url>
+          <line>102</line>
+          <properties class="Model.Tiles.Units.Enemies.Monster" method="Death">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Model/Game/Board.java</url>
+          <line>58</line>
+          <properties class="Model.Game.Board" method="removeEnemy">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

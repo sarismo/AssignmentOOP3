@@ -1,6 +1,7 @@
 package Model.Tiles.Units.Enemies;
 
 import Model.Tiles.Units.Players.Player;
+import Model.Tiles.Units.Units;
 import Utils.Generators.Generator;
 import Utils.Generators.RandomGenerator;
 import Utils.Position;
@@ -97,5 +98,10 @@ public class Monster extends Enemy{
     @Override
     public String describe() {
         return super.describe() + "\t\tVisionRange : " + this.VisionRange;
+    }
+    @Override
+    public void Death(Units Killer){
+        Killer.addExperience(this.experienceValue);
+        messageCallback.send("Monster " + this.getName() + " died.");
     }
 }
