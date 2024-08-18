@@ -32,6 +32,9 @@ public abstract class Player extends Units {
         addExperience(enemy.experienceValue());
         enemy.Death();
     }
+    public void SetMCB(MessageCallback msg){
+        CallBack=msg;
+    }
     public void addExperience(int experienceValue){
         this.experience += experienceValue;
         while(experience >= levelRequirment()){

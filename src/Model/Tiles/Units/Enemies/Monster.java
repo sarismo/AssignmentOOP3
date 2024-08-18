@@ -20,15 +20,21 @@ public class Monster extends Enemy{
             // The player is within vision range, so the monster will chase the player
             if (Math.abs(dx) > Math.abs(dy)) {
                 if (dx > 0) {
-                    moveLeft();
+                    //moveLeft();
+                    return "a";
                 } else {
-                    moveRight();
+                   // moveRight();
+                    return "d";
                 }
             } else {
                 if (dy > 0) {
-                    moveUp();
+                    //moveUp();
+                    return "w";
+
                 } else {
-                    moveDown();
+                    //moveDown();
+                    return "s";
+
                 }
             }
         }

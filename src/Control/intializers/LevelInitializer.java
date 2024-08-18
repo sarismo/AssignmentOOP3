@@ -76,13 +76,13 @@ public class LevelInitializer {
                         break;
                     case  '@':
                         //create player tile // TODO
-                     Tile p= tileFactory.producePlayer(playerID,d,m,g);
+                     Tile p= tileFactory.producePlayer(playerID, d, m, g);
                      p.initialize(position,g);
                      board.SetPosition(position,p);
                         break;
                     default:
                         // create enemy tile // TODO
-                    Enemy enemy= tileFactory.produceEnemy(c,position,d,g,m);
+                        Enemy enemy= tileFactory.produceEnemy(c,position,d,g,m);
                         board.SetPosition(position,enemy);
                         enemy.initialize(position);
                         enemies.add(enemy);
