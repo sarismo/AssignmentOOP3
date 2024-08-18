@@ -14,7 +14,10 @@ public class Rogue extends Player {
         this.Cost = cost;
         Current_Energy = 100;
     }
-
+    public void info()
+    {
+        this.CallBack.send("Rogue " +this.getName() + "\n" + this.describe() + "\n");
+    }
 
     public void levelUp() {
         super.levelUp();

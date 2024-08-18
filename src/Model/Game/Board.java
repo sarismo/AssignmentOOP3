@@ -15,7 +15,7 @@ public class Board {
     private Map<Position, Tile> board;
     private Player p;
     private List<Enemy> enemies;
-    private final int width ;
+    private int width ;
 
     public Board(List<Tile> tiles, Player p, List<Enemy> enemies, int width) {
         this.p = p;
@@ -26,6 +26,19 @@ public class Board {
             board.put(t.getPosition(), t);
         }
     }
+    public Board(Player player){
+        width=0;
+        this.p=player;
+        this.board = new TreeMap<>();
+    }
+    public void setEnemies(List<Enemy> l){
+        this.enemies=l;
+    }
+    public void setWidth(int width){
+        this.width=width;
+    }
+
+
     public Tile check(Position p) {
         Tile[] tiles = board.values().toArray(new Tile[0]);
         for(Tile t : tiles){
@@ -34,6 +47,12 @@ public class Board {
             }
         }
         throw new RuntimeException("No such tile in this board");
+    }
+    public void swapPosition(Position p1,Position p2)
+    {
+        Tile temp = this.board.get(p2);
+        this.board.replace(p2,this.board.get(p1)) ;
+        this.board.replace(p1,temp);
     }
 
     public void removeEnemy(Enemy e) {
@@ -49,7 +68,7 @@ public class Board {
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<Position, Tile> entry : board.entrySet()) {
             sb.append(entry.getValue().toString());
-            if(entry.getKey().getX() == width-1) { //
+            if(entry.getKey().getX() == width) { //
             sb.append("\n");
             }
         }

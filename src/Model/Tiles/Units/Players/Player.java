@@ -1,5 +1,6 @@
 package Model.Tiles.Units.Players;
 
+import Model.Tiles.Empty;
 import Model.Tiles.Tile;
 import Model.Tiles.Units.Units;
 import Model.Tiles.Units.Enemies.Enemy ;
@@ -30,6 +31,9 @@ public abstract class Player extends Units {
     public void kill(Enemy enemy){
         addExperience(enemy.experienceValue());
         enemy.Death();
+    }
+    public void SetMCB(MessageCallback msg){
+        CallBack=msg;
     }
     public void addExperience(int experienceValue){
         this.experience += experienceValue;
@@ -74,6 +78,7 @@ public abstract class Player extends Units {
             e.Death();
         }
     }
+
     protected void AttackAbilityDamage(Enemy e, int abilityDamage) {
         int damageDone = Math.max(abilityDamage - e.defend(), 0);
         e.getHealth().takeDamage(damageDone);
@@ -101,7 +106,7 @@ public abstract class Player extends Units {
         CallBack.send("Player has Died , you have Lost !!!");
     }
     public abstract void CastAbility(List<Enemy> enemies);
-
+    public abstract void info();
     public Position getPosition() {
         return this.position;
     }

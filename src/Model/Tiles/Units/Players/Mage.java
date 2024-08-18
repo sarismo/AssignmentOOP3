@@ -50,7 +50,10 @@ public class Mage extends Player {
     {
         return 10 * level;
     }
-
+    public void info()
+    {
+        this.CallBack.send("Mage " +this.getName() + "\n" + this.describe() + "\n");
+    }
 
 
     @Override

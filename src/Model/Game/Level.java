@@ -8,11 +8,15 @@ import Model.Tiles.Units.Enemies.Monster;
 import Model.Tiles.Units.Enemies.Trap;
 import Model.Tiles.Units.Players.Player;
 import Model.Tiles.Units.Units;
+import Utils.Callbacks.DeathCallback;
 import Utils.Callbacks.MessageCallback;
 import Utils.Position;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+
+
 
 public class Level {
     private Board board;
@@ -23,22 +27,58 @@ public class Level {
     private LevelInitializer buildLevel;
     private TileFactory factory;
 
-    public Level(MessageCallback msg) {
+
+    public Level(MessageCallback msg, int pID) {
         this.msg = msg;
         this.monsters = new ArrayList<>();
         this.traps = new ArrayList<>();
         this.factory = new TileFactory(msg);
-        this.buildLevel = new LevelInitializer(msg);
+        this.buildLevel = new LevelInitializer(msg,pID,player);
+
+    }
+    public void betweenGameTicks()
+    {
+        List<Monster> aliveMonsters = new ArrayList<Monster>();
+        List<Trap> aliveTraps = new ArrayList<Trap>();
+        for (Monster m : this.monsters)
+        {
+            if (!m.alive()) {
+                this.removeEnemy(m);
+            }
+            else
+                aliveMonsters.add(m);
+
+        }
+        for (Trap t : this.traps)
+        {
+            if (!t.alive()) {
+                this.removeEnemy(t);
+            }
+            else
+                aliveTraps.add(t);
+        }
+
+        this.traps = aliveTraps;
+        this.monsters = aliveMonsters;
     }
 
     public void gameTick(String action) {
+        Position tempPosition=player.getPosition();
         Interact(player, action);
+        this.board.swapPosition(this.player.getPosition(),tempPosition);
+        betweenGameTicks();
+
         for (Monster monster : monsters) {
-            monster.EnemyOnGameTick(player);
+//            monster.EnemyOnGameTick(player);
+            tempPosition = monster.getPosition();
+            Interact(monster,monster.EnemyOnGameTick(this.player));
+            this.board.swapPosition(monster.getPosition(),tempPosition);
+            betweenGameTicks();
         }
 
         for (Trap trap : traps) {
             trap.onEnemyTurn(player);
+            betweenGameTicks();
         }
 
         if (gameOver()) {
@@ -69,6 +109,7 @@ public class Level {
                 SetPlayer((Player) tile);
             }
         }
+
     }
 
     public void addEnemy(Tile t, char c) {
@@ -83,8 +124,8 @@ public class Level {
 
     public void removeEnemy(Enemy enemy) {
         board.removeEnemy(enemy);
-        traps.remove(enemy);
-        monsters.remove(enemy);
+//        traps.remove(enemy);
+//        monsters.remove(enemy);
     }
 
     public void Interact(Units u, String action) {
@@ -115,7 +156,11 @@ public class Level {
     public void SetPlayer(Player player) {
         this.player = player;
     }
-
+    public void levelInfo()
+    {
+        msg.send(this.board.toString());
+        this.player.info();
+    }
     public boolean hasLevel(String levelFilePath) {
         return buildLevel.levelExists(levelFilePath);
     }

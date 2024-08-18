@@ -2,6 +2,7 @@ package Model.Game;
 
 import Control.intializers.TileFactory;
 import Model.Game.Level;
+import Utils.Callbacks.DeathCallback;
 import Utils.Callbacks.MessageCallback;
 
 import java.util.Scanner;
@@ -18,7 +19,6 @@ public class Game {
         this.directoryPath = directoryPath;
         this.msg = msg;
         this.tileFactory = new TileFactory(msg);
-        this.currentLevel = new Level(msg);
         this.scanner = new Scanner(System.in);
         initializeGame();
     }
@@ -29,6 +29,7 @@ public class Game {
 
         if (scanner.nextInt() == 0) {
             selectPlayer();
+
         } else {
             msg.send("Please reload the game and ensure the directory is correctly set up.");
         }
@@ -36,13 +37,14 @@ public class Game {
 
     private void selectPlayer() {
         tileFactory.printThePlayers();
-        msg.send("Choose your player from the list (Enter a number between 1 and 7):");
+        msg.send("Choose your player from the list (Enter a number between 1 and 6):");
 
         int playerChosen = scanner.nextInt();
         while (playerChosen < 1 || playerChosen > 7) {
             msg.send("Invalid player chosen. Please select a valid player number.");
             playerChosen = scanner.nextInt();
         }
+        this.currentLevel = new Level(msg,playerChosen);
         currentLevel.SetPlayer(tileFactory.getPlayer(playerChosen));
     }
 
@@ -50,6 +52,7 @@ public class Game {
         int levelNumber = 1;
 
         while (currentLevel.hasLevel(getLevelFilePath(levelNumber)) && !currentLevel.gameOver()) {
+            currentLevel.loadLevel(getLevelFilePath(levelNumber));
             loadAndPlayLevel(levelNumber);
             levelNumber++;
         }
@@ -58,10 +61,11 @@ public class Game {
     }
 
     private void loadAndPlayLevel(int levelNumber) {
+        Scanner scanner = new Scanner(System.in);
         while (!currentLevel.gameOver() && !currentLevel.isOver()) {
             EmptyRow();
-
-            msg.send("Your turn - ");
+            currentLevel.levelInfo();
+            msg.send("Go ahead! - ");
             String userAction = scanner.nextLine();
             currentLevel.gameTick(userAction);
         }

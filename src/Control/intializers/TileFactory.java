@@ -63,6 +63,7 @@ public class TileFactory {
     public Player producePlayer(int PlayerID,DeathCallback deathCallback,MessageCallback messageCallback,Generator generator) {
         Supplier<Player> supp = playerTypes.get(PlayerID-1);
         this.p = supp.get();
+        this.p.SetMCB(msg);
         return this.p;
     }
     public Player producePlayer(){
@@ -96,7 +97,7 @@ public class TileFactory {
         return playerTypes.stream().map(Supplier::get).collect(Collectors.toList());
     }
     public Player getPlayer(int index) {
-        p = this.playerTypes.get(index-1).get();
+        p = playerTypes.get(index-1).get();
         return p;
     }
 

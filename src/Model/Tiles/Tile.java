@@ -1,6 +1,8 @@
 package Model.Tiles;
 
 import Model.Tiles.Units.Units;
+import Utils.Callbacks.DeathCallback;
+import Utils.Callbacks.MessageCallback;
 import Utils.Generators.Generator;
 import Utils.Position;
 
@@ -48,4 +50,6 @@ public abstract class Tile {
     public char getTileCharacter() {
         return tile;
     }
+
+
 }
