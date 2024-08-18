@@ -130,7 +130,7 @@ public class Level {
 
         switch (action) {
             case "w":
-                newPosition = new Position(u.getPosition().getX(), u.getPosition().getY() - 1);
+                newPosition = new Position(u.getPosition().getX(), u.getPosition().getY() -1 );
                 break;
             case "s":
                 newPosition = new Position(u.getPosition().getX(), u.getPosition().getY() + 1);
@@ -144,7 +144,9 @@ public class Level {
             default:
                 return;
         }
-
+        System.out.println(newPosition.getX());
+        System.out.println(this.board==null);
+        System.out.println(this.board.getTileInPosition(newPosition).toString());
         if (newPosition != null) {
             u.Interact(this.board.getTileInPosition(newPosition));
         }

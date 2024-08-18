@@ -60,9 +60,10 @@ public class TileFactory {
     }
 
 
-    public Player producePlayer(int PlayerID,DeathCallback deathCallback,MessageCallback messageCallback,Generator generator) {
+    public Player producePlayer(int PlayerID,DeathCallback deathCallback,MessageCallback messageCallback,Generator generator,Position position) {
         Supplier<Player> supp = playerTypes.get(PlayerID-1);
         this.p = supp.get();
+        p.initialize(position,generator,deathCallback,messageCallback);
         return this.p;
     }
     public Player producePlayer(){

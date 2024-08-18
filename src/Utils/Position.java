@@ -49,7 +49,17 @@ public class Position implements Comparable<Position> {
             return new Position(x+_x, y+_y);
         }
 
+    @Override
+    public boolean equals(Object obj) {
+     super.equals(obj);
+     Position p1 = (Position) obj;
+     if(p1.x==this.x&&p1.y==this.y){
+         return true;
+     }else {
+         return false;
+     }
     }
+}
 
 
 
