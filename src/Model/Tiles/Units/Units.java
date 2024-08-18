@@ -37,7 +37,7 @@ public abstract class Units extends  Tile {
         this.generator=new RandomGenerator();
     }
 
-
+    public abstract void addExperience(int experienceValue);
     public void initialize(Position position1, Generator generator, DeathCallback deathCallback, MessageCallback messageCallback) {
         super.initialize(position1);
 //        this.generator = generator;
@@ -67,7 +67,7 @@ public abstract class Units extends  Tile {
         else
             messageCallback.send("the attack was too low to break the enemy defense");
         if(!enemy.alive())
-            enemy.Death();
+            enemy.Death(this);
     }
     public void Interact(Tile t) {
         t.accept(this);
@@ -101,7 +101,5 @@ public abstract class Units extends  Tile {
     }
     public abstract void visit(Player p );
     public abstract void visit(Enemy e);
-    public  void Death(){
-        this.deathCallback.Death();
-    }
+    public abstract void Death(Units Killer);
 }

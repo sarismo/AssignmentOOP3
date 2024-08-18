@@ -36,10 +36,11 @@ public class Level {
         this.buildLevel = new LevelInitializer(msg,pID,player);
 
     }
-    public void betweenGameTicks()
+    public void updateGame()
     {
         List<Monster> aliveMonsters = new ArrayList<Monster>();
         List<Trap> aliveTraps = new ArrayList<Trap>();
+
         for (Monster m : this.monsters)
         {
             if (!m.alive()) {
@@ -57,7 +58,7 @@ public class Level {
             else
                 aliveTraps.add(t);
         }
-
+        this.board.swapPosition(this.player.getPosition(),this.player.getPosition());
         this.traps = aliveTraps;
         this.monsters = aliveMonsters;
     }
@@ -66,19 +67,18 @@ public class Level {
         Position tempPosition=player.getPosition();
         Interact(player, action);
         this.board.swapPosition(this.player.getPosition(),tempPosition);
-        betweenGameTicks();
-
+        updateGame();
         for (Monster monster : monsters) {
 //            monster.EnemyOnGameTick(player);
             tempPosition = monster.getPosition();
             Interact(monster,monster.EnemyOnGameTick(this.player));
             this.board.swapPosition(monster.getPosition(),tempPosition);
-            betweenGameTicks();
+            updateGame();
         }
 
         for (Trap trap : traps) {
             trap.onEnemyTurn(player);
-            betweenGameTicks();
+            updateGame();
         }
 
         if (gameOver()) {
