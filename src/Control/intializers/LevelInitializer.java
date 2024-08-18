@@ -52,11 +52,11 @@ public class LevelInitializer {
 
             throw new RuntimeException(e);
         }
-        int x =-1;
-        int y = -1;
+        int x =0;
+        int y = 0;
         for(String line : lines){
             y++;
-            x=0;
+            x=-1;
 
             for(char c : line.toCharArray()){
                 x++;
@@ -65,11 +65,13 @@ public class LevelInitializer {
                     case '.' :
                         // create empty tile // TODO
                       Tile e = tileFactory.produceEmpty(position);
+                        e.initialize(position,g);
                         board.SetPosition(position,e);
                         break;
                     case '#':
                         // create wall tile // TODO
                        Tile w= tileFactory.produceWall(position);
+                       w.initialize(position,g);
                        board.SetPosition(position,w);
                         break;
                     case  '@':
@@ -82,6 +84,7 @@ public class LevelInitializer {
                         // create enemy tile // TODO
                     Enemy enemy= tileFactory.produceEnemy(c,position,d,g,m);
                         board.SetPosition(position,enemy);
+                        enemy.initialize(position);
                         enemies.add(enemy);
                         break;
                 }

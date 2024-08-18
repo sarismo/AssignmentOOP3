@@ -13,7 +13,10 @@ import Utils.Callbacks.MessageCallback;
 import Utils.Position;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+
+
 
 public class Level {
     private Board board;
@@ -32,15 +35,47 @@ public class Level {
         this.factory = new TileFactory(msg);
         this.buildLevel = new LevelInitializer(msg,pID,player);
     }
+//    public void betweenGameTicks()
+//    {
+//        List<Monster> aliveMonsters = new LinkedList<Monster>();
+//        List<Trap> aliveTraps = new LinkedList<Trap>();
+//        for (Monster m : this.monsters)
+//        {
+//            if (!m.alive()) {
+//                addEnemy(new Empty(m.getPosition().getX(), m.getPosition().getY()));
+//            }
+//            else
+//                aliveMonsters.add(m);
+//
+//        }
+//        for (Trap t : this.traps)
+//        {
+//            if (!t.alive()) {
+//                this.board.addTile(new Empty(t.getPosition().getX(), t.getPosition().getY()));
+//            }
+//            else
+//                aliveTraps.add(t);
+//        }
+//
+//        this.traps = aliveTraps;
+//        this.monsters = aliveMonsters;
+//    }
 
     public void gameTick(String action) {
+        Position tempPosition=player.getPosition();
         Interact(player, action);
+        this.board.swapPosition(this.player.getPosition(),tempPosition);
         for (Monster monster : monsters) {
-            monster.EnemyOnGameTick(player);
+//            monster.EnemyOnGameTick(player);
+            tempPosition = monster.getPosition();
+            Interact(monster,monster.EnemyOnGameTick(this.player));
+            this.board.swapPosition(monster.getPosition(),tempPosition);
+
         }
 
         for (Trap trap : traps) {
             trap.onEnemyTurn(player);
+
         }
 
         if (gameOver()) {

@@ -12,11 +12,11 @@ public class Monster extends Enemy{
         super(tile, Name, hitPoints, attack_Points, defense_Points, experienceValue);
         this.VisionRange = visionRange;
     }
-    public void EnemyOnGameTick(Player p){
+    public String EnemyOnGameTick(Player p){
         int dx = position.getX() - p.getPosition().getX();
         int dy = position.getY() - p.getPosition().getY();
-
-        if (getPosition().Range(p.getPosition()) < VisionRange) {
+        double distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance < VisionRange) {
             // The player is within vision range, so the monster will chase the player
             if (Math.abs(dx) > Math.abs(dy)) {
                 if (dx > 0) {
@@ -31,10 +31,11 @@ public class Monster extends Enemy{
                     moveDown();
                 }
             }
-        } else {
-            // The player is not within vision range, perform a random movement action
-            randomMove();
         }
+            // The player is not within vision range, perform a random movement action
+
+
+        return randomMove();
     }
 
     private void moveLeft() {
@@ -57,25 +58,34 @@ public class Monster extends Enemy{
         messageCallback.send("Monster moves down.");
     }
 
-    private void randomMove() {
+    private String randomMove() {
+        String Reaction;
         int action =randomGenerator.generate(5) ; // 0: left, 1: right, 2: up, 3: down, 4: stay in place
         switch (action) {
             case 0:
-                moveLeft();
+                //moveLeft();
+                Reaction="a";
                 break;
             case 1:
-                moveRight();
+                //moveRight();
+                Reaction="d";
                 break;
             case 2:
-                moveUp();
+                //moveUp();
+                Reaction="w";
                 break;
             case 3:
-                moveDown();
+                //0moveDown();
+                Reaction="s";
                 break;
             case 4:
                 System.out.println("Monster stays in place.");
+                Reaction="";
                 break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + action);
         }
+        return Reaction;
     }
 
     @Override
