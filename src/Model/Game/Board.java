@@ -48,6 +48,12 @@ public class Board {
         }
         throw new RuntimeException("No such tile in this board");
     }
+    public void swapPosition(Position p1,Position p2)
+    {
+        Tile temp = this.board.get(p2);
+        this.board.replace(p2,this.board.get(p1)) ;
+        this.board.replace(p1,temp);
+    }
 
     public void removeEnemy(Enemy e) {
         Position p = e.getPosition();

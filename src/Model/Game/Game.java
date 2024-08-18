@@ -61,10 +61,11 @@ public class Game {
     }
 
     private void loadAndPlayLevel(int levelNumber) {
+        Scanner scanner = new Scanner(System.in);
         while (!currentLevel.gameOver() && !currentLevel.isOver()) {
             EmptyRow();
             currentLevel.levelInfo();
-            msg.send("Your turn - ");
+            msg.send("Go ahead! - ");
             String userAction = scanner.nextLine();
             currentLevel.gameTick(userAction);
         }
