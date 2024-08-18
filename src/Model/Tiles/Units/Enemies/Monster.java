@@ -1,6 +1,10 @@
 package Model.Tiles.Units.Enemies;
 
 import Model.Tiles.Units.Players.Player;
+import Model.Tiles.Units.Units;
+
+import Utils.Callbacks.MessageCallback;
+
 import Utils.Generators.Generator;
 import Utils.Generators.RandomGenerator;
 import Utils.Position;
@@ -8,6 +12,7 @@ import Utils.Position;
 public class Monster extends Enemy{
     Integer VisionRange;
     RandomGenerator randomGenerator= new RandomGenerator();
+
     public Monster(char tile, String Name, int hitPoints, int attack_Points, int defense_Points, int experienceValue, int visionRange) {
         super(tile, Name, hitPoints, attack_Points, defense_Points, experienceValue);
         this.VisionRange = visionRange;
@@ -20,15 +25,21 @@ public class Monster extends Enemy{
             // The player is within vision range, so the monster will chase the player
             if (Math.abs(dx) > Math.abs(dy)) {
                 if (dx > 0) {
-                    moveLeft();
+                    //moveLeft();
+                    return "a";
                 } else {
-                    moveRight();
+                   // moveRight();
+                    return "d";
                 }
             } else {
                 if (dy > 0) {
-                    moveUp();
+                    //moveUp();
+                    return "w";
+
                 } else {
-                    moveDown();
+                    //moveDown();
+                    return "s";
+
                 }
             }
         }
@@ -79,8 +90,12 @@ public class Monster extends Enemy{
                 Reaction="s";
                 break;
             case 4:
+
+                messageCallback.send("Monster stays in place.");
+
                 System.out.println("Monster stays in place.");
                 Reaction="";
+
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + action);
@@ -91,5 +106,10 @@ public class Monster extends Enemy{
     @Override
     public String describe() {
         return super.describe() + "\t\tVisionRange : " + this.VisionRange;
+    }
+    @Override
+    public void Death(Units Killer){
+        Killer.addExperience(this.experienceValue);
+        messageCallback.send("Monster " + this.getName() + " died.");
     }
 }

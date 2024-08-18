@@ -48,4 +48,8 @@ public abstract class Tile {
     public char getTileCharacter() {
         return tile;
     }
+    protected void changeTileView(char x) {
+        tile = x;
+    }
+
 }

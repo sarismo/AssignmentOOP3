@@ -34,48 +34,51 @@ public class Level {
         this.traps = new ArrayList<>();
         this.factory = new TileFactory(msg);
         this.buildLevel = new LevelInitializer(msg,pID,player);
+
     }
-//    public void betweenGameTicks()
-//    {
-//        List<Monster> aliveMonsters = new LinkedList<Monster>();
-//        List<Trap> aliveTraps = new LinkedList<Trap>();
-//        for (Monster m : this.monsters)
-//        {
-//            if (!m.alive()) {
-//                addEnemy(new Empty(m.getPosition().getX(), m.getPosition().getY()));
-//            }
-//            else
-//                aliveMonsters.add(m);
-//
-//        }
-//        for (Trap t : this.traps)
-//        {
-//            if (!t.alive()) {
-//                this.board.addTile(new Empty(t.getPosition().getX(), t.getPosition().getY()));
-//            }
-//            else
-//                aliveTraps.add(t);
-//        }
-//
-//        this.traps = aliveTraps;
-//        this.monsters = aliveMonsters;
-//    }
+    public void updateGame()
+    {
+        List<Monster> aliveMonsters = new ArrayList<Monster>();
+        List<Trap> aliveTraps = new ArrayList<Trap>();
+
+        for (Monster m : this.monsters)
+        {
+            if (!m.alive()) {
+                this.removeEnemy(m);
+            }
+            else
+                aliveMonsters.add(m);
+
+        }
+        for (Trap t : this.traps)
+        {
+            if (!t.alive()) {
+                this.removeEnemy(t);
+            }
+            else
+                aliveTraps.add(t);
+        }
+        this.board.swapPosition(this.player.getPosition(),this.player.getPosition());
+        this.traps = aliveTraps;
+        this.monsters = aliveMonsters;
+    }
 
     public void gameTick(String action) {
         Position tempPosition=player.getPosition();
         Interact(player, action);
         this.board.swapPosition(this.player.getPosition(),tempPosition);
+        updateGame();
         for (Monster monster : monsters) {
 //            monster.EnemyOnGameTick(player);
             tempPosition = monster.getPosition();
             Interact(monster,monster.EnemyOnGameTick(this.player));
             this.board.swapPosition(monster.getPosition(),tempPosition);
-
+            updateGame();
         }
 
         for (Trap trap : traps) {
             trap.onEnemyTurn(player);
-
+            updateGame();
         }
 
         if (gameOver()) {
@@ -121,8 +124,8 @@ public class Level {
 
     public void removeEnemy(Enemy enemy) {
         board.removeEnemy(enemy);
-        traps.remove(enemy);
-        monsters.remove(enemy);
+//        traps.remove(enemy);
+//        monsters.remove(enemy);
     }
 
     public void Interact(Units u, String action) {
@@ -158,7 +161,7 @@ public class Level {
     public void levelInfo()
     {
         msg.send(this.board.toString());
-//        this.player.info();
+        this.player.info();
     }
     public boolean hasLevel(String levelFilePath) {
         return buildLevel.levelExists(levelFilePath);
