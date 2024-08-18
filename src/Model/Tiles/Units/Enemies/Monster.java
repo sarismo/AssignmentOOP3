@@ -86,7 +86,7 @@ public class Monster extends Enemy{
                 Reaction="s";
                 break;
             case 4:
-                System.out.println("Monster stays in place.");
+//                System.out.println("Monster stays in place.");
                 Reaction="";
                 break;
             default:
