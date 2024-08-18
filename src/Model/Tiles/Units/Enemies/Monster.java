@@ -90,14 +90,13 @@ public class Monster extends Enemy{
                 Reaction="s";
                 break;
             case 4:
-<<<<<<< HEAD
+
 //                System.out.println("Monster stays in place.");
-=======
+
 
                 messageCallback.send("Monster stays in place.");
 
-                System.out.println("Monster stays in place.");
->>>>>>> 87929f4c87d522c1147512e5bd369b057f88630b
+
                 Reaction="";
 
                 break;
