@@ -5,6 +5,7 @@ import Model.Tiles.Tile;
 import Model.Tiles.Units.Enemies.Enemy;
 import Model.Tiles.Units.Players.Player;
 import Model.Tiles.Units.Units;
+import Utils.Generators.RandomGenerator;
 import Utils.Position;
 
 import java.util.List;
@@ -58,9 +59,11 @@ public class Board {
     public void removeEnemy(Enemy e) {
         Position p = e.getPosition();
 
-        board.remove(p,e);
-
-       board.put(p,new Empty());
+        this.board.remove(p,e);
+        this.enemies.remove(e);
+        Tile tile=new Empty();
+        tile.initialize(p,new RandomGenerator());
+       this.board.put(p,tile);
     }
 
     @Override

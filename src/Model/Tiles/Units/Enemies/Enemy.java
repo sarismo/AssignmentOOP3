@@ -1,5 +1,7 @@
 package Model.Tiles.Units.Enemies;
 
+import Model.Tiles.Empty;
+import Model.Tiles.Tile;
 import Model.Tiles.Units.Players.Player;
 import Model.Tiles.Units.Units;
 import Utils.Position;
@@ -18,10 +20,10 @@ public abstract class Enemy extends Units {
     public int experienceValue() {
         return experienceValue ;
     }
-    public void Death(){
-        messageCallback.send("Enemy has Died");
+    public abstract void Death(Units Killer);
+    public  void addExperience(int experienceValue){
+        //do nothing
     }
-
     @Override
     public void accept(Units unit) {
             unit.visit(this) ;
@@ -32,7 +34,7 @@ public abstract class Enemy extends Units {
     public void visit(Player p ){
         battle(p);
         if(!p.alive()){
-            p.Death();
+            p.Death(this);
         }
     }
 
