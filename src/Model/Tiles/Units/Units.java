@@ -6,6 +6,7 @@ import Model.Tiles.Units.Players.Player;
 import Utils.Callbacks.DeathCallback;
 import Utils.Callbacks.MessageCallback;
 import Utils.Generators.Generator;
+import Utils.Generators.RandomGenerator;
 import Utils.Health;
 import Utils.Position;
 import Model.Tiles.Wall;
@@ -20,7 +21,12 @@ public abstract class Units extends  Tile {
 
     protected Generator generator;
     protected DeathCallback deathCallback;
-    protected MessageCallback messageCallback;
+    protected MessageCallback messageCallback = new MessageCallback() {
+        @Override
+        public void send(String message) {
+
+        }
+    };
 
     public Units(char tile,String Name , int hitPoints ,int attack_Points, int defense_Points){
         super(tile);
@@ -28,16 +34,15 @@ public abstract class Units extends  Tile {
         this.health =new Health(hitPoints);
         this.Attack_Points = attack_Points;
         this.Defense_Points = defense_Points;
-
+        this.generator=new RandomGenerator();
     }
 
 
-    public Units initialize(Position position1, Generator generator, DeathCallback deathCallback, MessageCallback messageCallback) {
+    public void initialize(Position position1, Generator generator, DeathCallback deathCallback, MessageCallback messageCallback) {
         super.initialize(position1);
-        this.generator = generator;
+//        this.generator = generator;
         this.deathCallback = deathCallback;
-        this.messageCallback = messageCallback;
-        return this ;
+//        this.messageCallback = messageCallback;
     }
 
     public int attack(){
