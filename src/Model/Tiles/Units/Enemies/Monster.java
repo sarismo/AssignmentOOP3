@@ -2,6 +2,9 @@ package Model.Tiles.Units.Enemies;
 
 import Model.Tiles.Units.Players.Player;
 import Model.Tiles.Units.Units;
+
+import Utils.Callbacks.MessageCallback;
+
 import Utils.Generators.Generator;
 import Utils.Generators.RandomGenerator;
 import Utils.Position;
@@ -9,6 +12,7 @@ import Utils.Position;
 public class Monster extends Enemy{
     Integer VisionRange;
     RandomGenerator randomGenerator= new RandomGenerator();
+
     public Monster(char tile, String Name, int hitPoints, int attack_Points, int defense_Points, int experienceValue, int visionRange) {
         super(tile, Name, hitPoints, attack_Points, defense_Points, experienceValue);
         this.VisionRange = visionRange;
@@ -86,8 +90,16 @@ public class Monster extends Enemy{
                 Reaction="s";
                 break;
             case 4:
+<<<<<<< HEAD
 //                System.out.println("Monster stays in place.");
+=======
+
+                messageCallback.send("Monster stays in place.");
+
+                System.out.println("Monster stays in place.");
+>>>>>>> 87929f4c87d522c1147512e5bd369b057f88630b
                 Reaction="";
+
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + action);
