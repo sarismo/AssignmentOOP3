@@ -15,7 +15,9 @@ public abstract class Enemy extends Units {
         super(tile, Name, hitPoints, attack_Points, defense_Points);
         this.experienceValue = experienceValue ;
     }
-
+    public  void addExperience(int experienceValue){
+        //do nothing
+    }
     public int experienceValue() {
         return experienceValue ;
     }

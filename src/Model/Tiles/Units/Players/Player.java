@@ -1,11 +1,9 @@
 package Model.Tiles.Units.Players;
 
-import Model.Tiles.Empty;
 import Model.Tiles.Tile;
 import Model.Tiles.Units.Units;
 import Model.Tiles.Units.Enemies.Enemy ;
 import Utils.Callbacks.MessageCallback;
-import Utils.Generators.Generator;
 import Utils.Position;
 import view.CLI;
 
@@ -42,7 +40,7 @@ public abstract class Player extends Units {
 //        }
 //    }
     public  void levelUp(){
-        this.experience += levelRequirment() ;
+        this.experience -= levelRequirment() ;
         this.level++;
         int healthGain = healthGain();
         int attackGain = attackGain();

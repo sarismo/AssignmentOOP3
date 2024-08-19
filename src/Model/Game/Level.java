@@ -147,9 +147,9 @@ public class Level {
             default:
                 return;
         }
-        System.out.println(newPosition.getX());
-        System.out.println(this.board==null);
-        System.out.println(this.board.getTileInPosition(newPosition).toString());
+//        System.out.println(newPosition.toString());
+//        System.out.println(this.board==null);
+//        System.out.println(this.board.getTileInPosition(newPosition).toString());
         if (newPosition != null) {
             u.Interact(this.board.getTileInPosition(newPosition));
         }

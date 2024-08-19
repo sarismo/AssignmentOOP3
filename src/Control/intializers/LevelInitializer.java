@@ -64,27 +64,27 @@ public class LevelInitializer {
                 switch (c){
                     case '.' :
                         // create empty tile // TODO
-                      Tile e = tileFactory.produceEmpty(position);
+                        Tile e = tileFactory.produceEmpty(position);
                         e.initialize(position,g);
                         board.SetPosition(position,e);
                         break;
                     case '#':
                         // create wall tile // TODO
-                       Tile w= tileFactory.produceWall(position);
-                       w.initialize(position,g);
-                       board.SetPosition(position,w);
+                        Tile w= tileFactory.produceWall(position);
+                        w.initialize(position,g);
+                        board.SetPosition(position,w);
                         break;
                     case  '@':
                         //create player tile // TODO
-                     Tile p= tileFactory.producePlayer(playerID,d,m,g,position);
-//                     p.initialize(position,g);
-                     board.SetPosition(position,p);
+                        Tile p= tileFactory.producePlayer(playerID, d, m, g);
+                        p.initialize(position,g);
+                        board.SetPosition(position,p);
                         break;
                     default:
                         // create enemy tile // TODO
-                    Enemy enemy= tileFactory.produceEnemy(c,position,d,g,m);
+                        Enemy enemy= tileFactory.produceEnemy(c,position,d,g,m);
                         board.SetPosition(position,enemy);
-//                        enemy.initialize(position);
+                        enemy.initialize(position);
                         enemies.add(enemy);
                         break;
                 }

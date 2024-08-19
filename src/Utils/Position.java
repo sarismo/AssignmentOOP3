@@ -44,7 +44,10 @@ public class Position implements Comparable<Position> {
             return 0;
         }
 
-
+        @Override
+        public String toString(){
+            return this.x+","+this.y;
+        }
         public Position Translate(int _x,int _y){
             return new Position(x+_x, y+_y);
         }
