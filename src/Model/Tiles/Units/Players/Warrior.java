@@ -3,6 +3,7 @@ package Model.Tiles.Units.Players;
 import Model.Tiles.Tile;
 import Model.Tiles.Units.Enemies.Enemy;
 import Utils.Generators.Generator;
+import Utils.Generators.RandomGenerator;
 import Utils.Position;
 
 import java.util.ArrayList;
@@ -13,12 +14,13 @@ public class Warrior extends Player {
     public static final String specialAbility = "Avenger's Shield";
     private int AbilityCooldown;
     private int RemainingCooldown;
-    Random randomEnemy;
+    public RandomGenerator randomEnemy;
 
     public Warrior(String name, int hitPoints, int attack, int defense, int abilityCooldown) {
         super(name, hitPoints, attack, defense);
         AbilityCooldown = abilityCooldown;
         RemainingCooldown = 0;
+        randomEnemy =new RandomGenerator();
     }
 
     public void levelUp()
@@ -48,9 +50,8 @@ public class Warrior extends Player {
             if (PossibleEnemy.isEmpty()) {
                 return;
             }else {
-                randomEnemy = new Random();
-                int random = (int) (Math.random() * PossibleEnemy.size());
-                AttackAbilityDamage(PossibleEnemy.get(random),(int) (0.1)*health.Health_pool);
+                int random  = randomEnemy.generate(PossibleEnemy.size());
+                AttackAbilityDamage(PossibleEnemy.get(random),(int) (health.Health_pool*0.1));
             }
         } else {
             messageCallback.send("The player can't use his special ability yet ,"+ "wait" +RemainingCooldown +"Seconds till he cools down" );
