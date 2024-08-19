@@ -10,10 +10,11 @@ public class Empty extends Tile{
         super(EMPTY_TILE);
     }
 
-    @Override
-    public void intialiize(Position position1, Generator generator) {
-        return;
-    }
+
+//    public void intialiize(Position position1, Generator generator)
+//    {
+//        return;
+//    }
 
     @Override
     public void accept(Units unit) {

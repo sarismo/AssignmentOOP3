@@ -28,11 +28,12 @@ public abstract class Tile {
         this.position = temp ;
     }
 
-    public  Tile initialize(Position position1, Generator generator){
+    public void initialize(Position position1, Generator generator){
         this.position = position1;
-        return this;
     }
 
+
+//    public abstract void intialiize(Position position1, Generator generator);
 
     public abstract void accept(Units unit) ;
 
@@ -48,4 +49,8 @@ public abstract class Tile {
     public char getTileCharacter() {
         return tile;
     }
+    protected void changeTileView(char x) {
+        tile = x;
+    }
+
 }

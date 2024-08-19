@@ -4,7 +4,6 @@ import Model.Tiles.Tile;
 import Model.Tiles.Units.Units;
 import Model.Tiles.Units.Enemies.Enemy ;
 import Utils.Callbacks.MessageCallback;
-import Utils.Generators.Generator;
 import Utils.Position;
 import view.CLI;
 
@@ -29,14 +28,17 @@ public abstract class Player extends Units {
     }
     public void kill(Enemy enemy){
         addExperience(enemy.experienceValue());
-        enemy.Death();
+        enemy.Death(this);
     }
-    public void addExperience(int experienceValue){
-        this.experience += experienceValue;
-        while(experience >= levelRequirment()){
-            levelUp();
-        }
+    public void SetMCB(MessageCallback msg){
+        CallBack=msg;
     }
+//    public void addExperience(int experienceValue){
+//        this.experience += experienceValue;
+//        while(experience >= levelRequirment()){
+//            levelUp();
+//        }
+//    }
     public  void levelUp(){
         this.experience += levelRequirment() ;
         this.level++;
@@ -71,9 +73,10 @@ public abstract class Player extends Units {
         battle(e);
         if(!e.alive()){
             addExperience(e.experienceValue());
-            e.Death();
+            e.Death(this);
         }
     }
+
     protected void AttackAbilityDamage(Enemy e, int abilityDamage) {
         int damageDone = Math.max(abilityDamage - e.defend(), 0);
         e.getHealth().takeDamage(damageDone);
@@ -89,21 +92,26 @@ public abstract class Player extends Units {
     }
 
     @Override
-    public void Death() {
-        Tile tile = new Tile('X') {
-            @Override
-            public void accept(Units unit) {
-
-            }
-        };
-
-        this.swapPosition(tile);
+    public void Death(Units Killer) {
+        this.tile='X';
+        Killer.swapPosition(this);
         CallBack.send("Player has Died , you have Lost !!!");
     }
     public abstract void CastAbility(List<Enemy> enemies);
-
+    public abstract void info();
     public Position getPosition() {
         return this.position;
+    }
+    @Override
+    public void addExperience(int experienceValue){
+        this.experience += experienceValue;
+        if (experience >= levelRequirement()) {
+            levelUp();
+        }
+        messageCallback.send(this.Name + " gain " + experienceValue + " exp");
+    }
+    protected int levelRequirement(){
+        return LEVEL_REQUIREMENT * level;
     }
   public  abstract void onGameTick(Tile t);
 }

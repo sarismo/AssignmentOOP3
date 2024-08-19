@@ -14,7 +14,9 @@ public abstract class Enemy extends Units {
         super(tile, Name, hitPoints, attack_Points, defense_Points);
         this.experienceValue = experienceValue ;
     }
-
+    public  void addExperience(int experienceValue){
+        //do nothing
+    }
     public int experienceValue() {
         return experienceValue ;
     }
@@ -32,7 +34,7 @@ public abstract class Enemy extends Units {
     public void visit(Player p ){
         battle(p);
         if(!p.alive()){
-            p.Death();
+            p.Death(this);
         }
     }
 
