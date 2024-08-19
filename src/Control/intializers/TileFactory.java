@@ -66,6 +66,12 @@ public class TileFactory {
         this.p.SetMCB(msg);
         return this.p;
     }
+    public Player producePlayer(int PlayerID,DeathCallback deathCallback,MessageCallback messageCallback,Generator generator,Position position) {
+        Supplier<Player> supp = playerTypes.get(PlayerID-1);
+        this.p = supp.get();
+        p.initialize(position,generator,deathCallback,messageCallback);
+        return this.p;
+    }
     public Player producePlayer(){
         return this.p;
     }
