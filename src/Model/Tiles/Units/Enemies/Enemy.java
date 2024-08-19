@@ -1,5 +1,6 @@
 package Model.Tiles.Units.Enemies;
 
+import Model.Tiles.Empty;
 import Model.Tiles.Units.Players.Player;
 import Model.Tiles.Units.Units;
 import Utils.Position;
@@ -20,6 +21,7 @@ public abstract class Enemy extends Units {
     }
     public void Death(){
         messageCallback.send("Enemy has Died");
+        this.swapPosition(new Empty());
     }
 
     @Override
@@ -32,7 +34,7 @@ public abstract class Enemy extends Units {
     public void visit(Player p ){
         battle(p);
         if(!p.alive()){
-            p.Death();
+            p.Death(this);
         }
     }
 
