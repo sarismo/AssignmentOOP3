@@ -40,7 +40,7 @@ public abstract class Player extends Units {
 //        }
 //    }
     public  void levelUp(){
-        this.experience += levelRequirment() ;
+        this.experience -= levelRequirment() ;
         this.level++;
         int healthGain = healthGain();
         int attackGain = attackGain();
