@@ -63,7 +63,7 @@ public class Board {
         this.enemies.remove(e);
         Tile tile=new Empty();
         tile.initialize(p,new RandomGenerator());
-       this.board.put(p,tile);
+        this.board.put(p,tile);
     }
 
     @Override
@@ -72,7 +72,7 @@ public class Board {
         for (Map.Entry<Position, Tile> entry : board.entrySet()) {
             sb.append(entry.getValue().toString());
             if(entry.getKey().getX() == width) { //
-            sb.append("\n");
+                sb.append("\n");
             }
         }
         return  sb.toString();
@@ -80,7 +80,7 @@ public class Board {
     }
 
     public int getLength() {
-      return  board.size();
+        return  board.size();
     }
     public void SetPosition(Position p,Tile tile){
         board.put(p,tile);

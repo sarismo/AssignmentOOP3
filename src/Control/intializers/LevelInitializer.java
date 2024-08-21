@@ -45,6 +45,9 @@ public class LevelInitializer {
 //        List<Tile> tiles=new ArrayList<>();
         List<Enemy> enemies= new ArrayList<>();
         List<String> lines;
+        // tileFactory = new TileFactory(m);
+        board = new Board(p);
+
         try{
             lines = Files.readAllLines(Paths.get(levelPath));
 

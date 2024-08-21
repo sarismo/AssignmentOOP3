@@ -85,8 +85,8 @@ public class Mage extends Player {
     }
 
     @Override
-    public void onGameTick(Tile t) {
-        this.Interact(t);
+    public void onGameTick() {
+
         Current_Mana = Math.min(Mana_Pool, Current_Mana + level);
     }
 

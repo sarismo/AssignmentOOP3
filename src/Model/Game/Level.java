@@ -2,6 +2,7 @@ package Model.Game;
 
 import Control.intializers.LevelInitializer;
 import Control.intializers.TileFactory;
+import Model.Tiles.Empty;
 import Model.Tiles.Tile;
 import Model.Tiles.Units.Enemies.Enemy;
 import Model.Tiles.Units.Enemies.Monster;
@@ -65,7 +66,22 @@ public class Level {
 
     public void gameTick(String action) {
         Position tempPosition=player.getPosition();
-        Interact(player, action);
+        System.out.println("action is "+action);
+        player.onGameTick();
+        if(action.equals("e")){
+            System.out.println("excuting ability");
+            List<Enemy> enemeis = new LinkedList<>();
+            for (Enemy enemy : monsters) {
+                enemeis.add(enemy);
+            }
+            for (Enemy enemy : traps) {
+                enemeis.add(enemy);
+            }
+            player.CastAbility(enemeis);
+        }else{
+            Interact(player, action);
+
+        }
         this.board.swapPosition(this.player.getPosition(),tempPosition);
         updateGame();
         for (Monster monster : monsters) {
@@ -130,7 +146,7 @@ public class Level {
 
     public void Interact(Units u, String action) {
         Position newPosition = null;
-
+        System.out.println(u instanceof Player ?"interacrt action |"+action+"|<":"");
         switch (action) {
             case "w":
                 newPosition = new Position(u.getPosition().getX(), u.getPosition().getY() -1 );
@@ -144,13 +160,16 @@ public class Level {
             case "d":
                 newPosition = new Position(u.getPosition().getX() + 1, u.getPosition().getY());
                 break;
+
             default:
+                System.out.println(u instanceof Player ?"new pos is null , THE ACTION is -"+action+"- is equal?= "+(action.equals("w")||action.equals("d")||action.equals("a")||action.equals("s")):"");
                 return;
         }
 //        System.out.println(newPosition.toString());
 //        System.out.println(this.board==null);
 //        System.out.println(this.board.getTileInPosition(newPosition).toString());
         if (newPosition != null) {
+            if( (u instanceof Player) && !(this.board.getTileInPosition(newPosition) instanceof Empty)) System.out.println(this.board.getTileInPosition(newPosition).getClass());
             u.Interact(this.board.getTileInPosition(newPosition));
         }
     }

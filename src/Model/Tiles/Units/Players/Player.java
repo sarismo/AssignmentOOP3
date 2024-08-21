@@ -33,7 +33,7 @@ public abstract class Player extends Units {
     public void SetMCB(MessageCallback msg){
         CallBack=msg;
     }
-//    public void addExperience(int experienceValue){
+    //    public void addExperience(int experienceValue){
 //        this.experience += experienceValue;
 //        while(experience >= levelRequirment()){
 //            levelUp();
@@ -54,7 +54,7 @@ public abstract class Player extends Units {
         return LEVEL_REQUIREMENT* level;
     }
     protected int healthGain(){
-     return  HEALTH_GAIN * level ;
+        return  HEALTH_GAIN * level ;
     }
     protected int attackGain(){
         return ATTACK_GAIN * level ;
@@ -80,6 +80,7 @@ public abstract class Player extends Units {
     protected void AttackAbilityDamage(Enemy e, int abilityDamage) {
         int damageDone = Math.max(abilityDamage - e.defend(), 0);
         e.getHealth().takeDamage(damageDone);
+        System.out.println(String.format("%s hit %s for %d Ability damage Done On Enemy ", getName(), e.getName(), damageDone));
         CallBack.send(String.format("%s hit %s for %d Ability damage Done On Enemy ", getName(), e.getName(), damageDone));
         if (!e.alive())
             kill(e);
@@ -113,5 +114,5 @@ public abstract class Player extends Units {
     protected int levelRequirement(){
         return LEVEL_REQUIREMENT * level;
     }
-  public  abstract void onGameTick(Tile t);
+    public  abstract void onGameTick();
 }

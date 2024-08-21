@@ -67,6 +67,7 @@ public class Game {
             currentLevel.levelInfo();
             msg.send("Go ahead! - ");
             String userAction = scanner.nextLine();
+            System.out.println("user action is "+userAction);
             currentLevel.gameTick(userAction);
         }
     }

@@ -10,7 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52f1a379-68bf-4331-876d-dccbbaee848c" name="Changes" comment="Tests">
-      <change beforePath="$PROJECT_DIR$/src/Model/Tiles/Units/Players/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Tiles/Units/Players/Warrior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Control/intializers/LevelInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/intializers/LevelInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Game/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Game/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Game/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Game/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Tiles/Units/Players/Mage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Tiles/Units/Players/Mage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Tiles/Units/Players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Tiles/Units/Players/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +100,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="46cfe999-a9b5-4a7f-a1f1-c441777876bd" name="Changes" comment="" />
+      <changelist id="52f1a379-68bf-4331-876d-dccbbaee848c" name="Changes" comment="Tests" />
       <created>1720262178643</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -138,7 +144,7 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Model/Game/Level.java</url>
-          <line>127</line>
+          <line>143</line>
           <properties class="Model.Game.Level">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

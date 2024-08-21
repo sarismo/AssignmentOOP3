@@ -44,8 +44,8 @@ public class Rogue extends Player {
     }
 
     @Override
-    public void onGameTick(Tile t) {
-        this.Interact(t);
+    public void onGameTick() {
+
         Current_Energy = Math.min(Current_Energy + 10, 100);
     }
 
