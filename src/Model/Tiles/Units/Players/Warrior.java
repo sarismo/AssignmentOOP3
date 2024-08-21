@@ -64,7 +64,6 @@ public class Warrior extends Player {
         if (RemainingCooldown > 0)
             RemainingCooldown--;
 
-
     }
 
     private int WarriorGainHealth()

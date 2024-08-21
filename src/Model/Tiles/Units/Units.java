@@ -21,12 +21,7 @@ public abstract class Units extends  Tile {
 
     protected Generator generator;
     protected DeathCallback deathCallback;
-    protected MessageCallback messageCallback = new MessageCallback() {
-        @Override
-        public void send(String message) {
-
-        }
-    };
+    protected MessageCallback messageCallback = (Message)-> System.out.println(Message);
 
     public Units(char tile,String Name , int hitPoints ,int attack_Points, int defense_Points){
         super(tile);

@@ -78,7 +78,8 @@ public class Level {
                 enemeis.add(enemy);
             }
             player.CastAbility(enemeis);
-        }else{
+        }
+        else{
             Interact(player, action);
 
         }
@@ -113,10 +114,7 @@ public class Level {
     }
 
     public void loadLevel(String filePath) {
-        // Initialize the level from a file
         board = buildLevel.initLevel(filePath);
-
-        // Find and add enemies to the level
         for (Tile tile : board.getTiles()) {
             char tileChar = tile.getTileCharacter();
             if (tile instanceof Enemy) {

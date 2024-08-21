@@ -86,7 +86,6 @@ public class Mage extends Player {
 
     @Override
     public void onGameTick() {
-
         Current_Mana = Math.min(Mana_Pool, Current_Mana + level);
     }
 
