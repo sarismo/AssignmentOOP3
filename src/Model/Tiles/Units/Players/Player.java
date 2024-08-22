@@ -80,7 +80,7 @@ public abstract class Player extends Units {
     protected void AttackAbilityDamage(Enemy e, int abilityDamage) {
         int damageDone = Math.max(abilityDamage - e.defend(), 0);
         e.getHealth().takeDamage(damageDone);
-        System.out.println(String.format("%s hit %s for %d Ability damage Done On Enemy ", getName(), e.getName(), damageDone));
+//        System.out.println(String.format("%s hit %s for %d Ability damage Done On Enemy ", getName(), e.getName(), damageDone));
         CallBack.send(String.format("%s hit %s for %d Ability damage Done On Enemy ", getName(), e.getName(), damageDone));
         if (!e.alive())
             kill(e);

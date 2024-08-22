@@ -44,5 +44,5 @@ public abstract class Enemy extends Units {
     public String describe() {
         return super.describe() + "\t\tEXPValue: "+ this.experienceValue;
     }
-
+    public abstract void info();
 }
