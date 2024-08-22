@@ -9,9 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52f1a379-68bf-4331-876d-dccbbaee848c" name="Changes" comment="Tests">
-      <change beforePath="$PROJECT_DIR$/src/Model/Game/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Game/Level.java" afterDir="false" />
-    </list>
+    <list default="true" id="52f1a379-68bf-4331-876d-dccbbaee848c" name="Changes" comment="Tests" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
