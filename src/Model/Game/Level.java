@@ -59,14 +59,14 @@ public class Level {
             else
                 aliveTraps.add(t);
         }
-        this.board.swapPosition(this.player.getPosition(),this.player.getPosition());
+//        this.board.swapPosition(this.player.getPosition(),this.player.getPosition());
         this.traps = aliveTraps;
         this.monsters = aliveMonsters;
     }
 
     public void gameTick(String action) {
         Position tempPosition=player.getPosition();
-        System.out.println("action is "+action);
+//        System.out.println("action is "+action);
         player.onGameTick();
         if(action.equals("e")){
             System.out.println("excuting ability");
@@ -144,7 +144,7 @@ public class Level {
 
     public void Interact(Units u, String action) {
         Position newPosition = null;
-        System.out.println(u instanceof Player ?"interacrt action |"+action+"|<":"");
+//        System.out.println(u instanceof Player ?"interacrt action |"+action+"|<":"");
         switch (action) {
             case "w":
                 newPosition = new Position(u.getPosition().getX(), u.getPosition().getY() -1 );
@@ -160,15 +160,32 @@ public class Level {
                 break;
 
             default:
-                System.out.println(u instanceof Player ?"new pos is null , THE ACTION is -"+action+"- is equal?= "+(action.equals("w")||action.equals("d")||action.equals("a")||action.equals("s")):"");
+//                System.out.println(u instanceof Player ?"new pos is null , THE ACTION is -"+action+"- is equal?= "+(action.equals("w")||action.equals("d")||action.equals("a")||action.equals("s")):"");
                 return;
         }
 //        System.out.println(newPosition.toString());
 //        System.out.println(this.board==null);
 //        System.out.println(this.board.getTileInPosition(newPosition).toString());
         if (newPosition != null) {
-            if( (u instanceof Player) && !(this.board.getTileInPosition(newPosition) instanceof Empty)) System.out.println(this.board.getTileInPosition(newPosition).getClass());
+//            if( (u instanceof Player) && !(this.board.getTileInPosition(newPosition) instanceof Empty)) System.out.println(this.board.getTileInPosition(newPosition).getClass());
+//            Position prev=new Position(player.getPosition().getX(),player.getPosition().getY());
             u.Interact(this.board.getTileInPosition(newPosition));
+//            if(u instanceof Player&&(this.board.getTileInPosition(newPosition) instanceof Empty)){
+//                this.board.swapPosition(newPosition,prev);
+//                System.out.println("aaaaaaa");
+//            }
+//            if(u instanceof Player&&!(this.board.getTileInPosition(newPosition) instanceof Empty)){
+//                int currentsize= monsters.size()+traps.size();
+//                updateGame();
+//                if(currentsize!=monsters.size()+ traps.size()) {
+//                    if (!(newPosition .equals( this.player.getPosition()))) {
+//                        this.board.swapPosition(newPosition, this.player.getPosition());
+//                    }
+//                    System.out.print("sssssssssssss");
+//                }
+//
+//            }
+
         }
     }
 
@@ -179,6 +196,9 @@ public class Level {
     {
         msg.send(this.board.toString());
         this.player.info();
+//        for(Monster e:monsters){
+//            e.info();
+//        }
     }
     public boolean hasLevel(String levelFilePath) {
         return buildLevel.levelExists(levelFilePath);

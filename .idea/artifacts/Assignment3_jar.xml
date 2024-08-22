@@ -3,7 +3,9 @@
     <output-path>$PROJECT_DIR$/out/artifacts/Assignment3_jar</output-path>
     <root id="archive" name="Assignment3.jar">
       <element id="module-output" name="Assignment3" />
+      <element id="module-test-output" name="Assignment3" />
       <element id="module-source" name="Assignment3" />
+      <element id="dir-copy" path="$PROJECT_DIR$/Tests" />
     </root>
   </artifact>
 </component>

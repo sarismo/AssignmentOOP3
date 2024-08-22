@@ -39,9 +39,14 @@ public class Trap extends Enemy{
     public void Death(Units Killer){
         Killer.addExperience(this.experienceValue);
         messageCallback.send("Trap " + this.getName() + " died.");
+        Killer.swapPosition(this);
     }
     @Override
     public String describe() {
         return super.describe() + "\t\tVisibilityTime: " + this.VisibilityTime + "\t\tInvisiblityTime: " + this.InvisibilityTime + "\t\tTickCounts : " + this.TicksCount;
+    }
+    @Override
+    public void info() {
+        this.messageCallback.send("Trap: " +this.getName() + "\n" + this.describe() + "\n");
     }
 }

@@ -93,7 +93,7 @@ public class Monster extends Enemy{
 
                 messageCallback.send("Monster stays in place.");
 
-                System.out.println("Monster stays in place.");
+//                System.out.println("Monster stays in place.");
                 Reaction="";
 
                 break;
@@ -111,5 +111,11 @@ public class Monster extends Enemy{
     public void Death(Units Killer){
         Killer.addExperience(this.experienceValue);
         messageCallback.send("Monster " + this.getName() + " died.");
+        Killer.swapPosition(this);
+    }
+
+    @Override
+    public void info() {
+        this.messageCallback.send("Monster: " +this.getName() + "\n" + this.describe() + "\n");
     }
 }

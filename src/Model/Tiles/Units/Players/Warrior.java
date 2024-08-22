@@ -47,7 +47,7 @@ public class Warrior extends Player {
                     PossibleEnemy.add(e);
             }
             if (PossibleEnemy.isEmpty()) {
-                System.out.println("nothing");
+//                System.out.println("nothing");
                 return;
             }else {
                 randomEnemy = new Random();
